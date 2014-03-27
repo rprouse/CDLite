@@ -23,12 +23,12 @@
 #include <mmsystem.h>
 #include <dbt.h>
 
-#include <win/Bmp.h>
-#include <win/BmpDlg.h>
-#include <win/HoverButton.h>
-#include <win/FileInfo.h>
-#include <win/Registry.h>
-#include <win/System.h>
+#include <Bmp.h>
+#include <BmpDlg.h>
+#include <HoverButton.h>
+#include <FileInfo.h>
+#include <Registry.h>
+#include <System.h>
 
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.

@@ -498,7 +498,8 @@ BOOL CCDLiteDlg::OnDeviceChange( UINT nEventType, DWORD dwData )
 	    {
 		TCHAR szDrive[4];
 		// pdbcv->unitmask contains the drive bits
-		for (UINT i=0; !(pdbcv->dbcv_unitmask & (1<<i)); i++);
+        UINT i;
+		for (i=0; !(pdbcv->dbcv_unitmask & (1<<i)); i++);
 		wsprintf(szDrive, _T("%c:\\"), 'A'+i);		
 		if (GetDriveType(szDrive) == DRIVE_CDROM) 
 		{					

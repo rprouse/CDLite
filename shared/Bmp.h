@@ -13,7 +13,7 @@
 // and forces the including project to link to the
 // library
 #ifndef BUILDING_LIBRARY
-#include <win/Library.h>
+#include <Library.h>
 #endif
 
 class CBmp  

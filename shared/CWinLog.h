@@ -21,15 +21,15 @@
 // and forces the including project to link to the
 // library
 #ifndef BUILDING_LIBRARY
-#include <win/Library.h>
+#include <Library.h>
 #endif
 
 #ifdef BUILDING_LIBRARY
 #include "CStoreLog.h"
 #include "logsync.h"
 #else
-#include <win/CStoreLog.h>
-#include <win/logsync.h>
+#include <CStoreLog.h>
+#include <logsync.h>
 #endif
 
 #include <vector>

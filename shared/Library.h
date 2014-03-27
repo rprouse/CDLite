@@ -24,7 +24,7 @@
 #ifdef BUILDING_LIBRARY
 #include "Version.h"
 #else
-#include <win/Version.h>
+#include <Version.h>
 #endif
 
 class CLibrary : public CVersion  

@@ -24,13 +24,13 @@
 // and forces the including project to link to the
 // library
 #ifndef BUILDING_LIBRARY
-#include <win/Library.h>
+#include <Library.h>
 #endif
 
 #ifdef BUILDING_LIBRARY
 #include "CStoreLog.h"
 #else
-#include <win/CStoreLog.h>
+#include <CStoreLog.h>
 #endif
 
 #ifndef MAX_STRING_LENGTH

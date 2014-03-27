@@ -16,13 +16,13 @@
 // and forces the including project to link to the
 // library
 #ifndef BUILDING_LIBRARY
-#include <win/Library.h>
+#include <Library.h>
 #endif
 
 #ifdef BUILDING_LIBRARY
 #include "Subclass.h"
 #else
-#include <win/Subclass.h>
+#include <Subclass.h>
 #endif
 
 ////////////////

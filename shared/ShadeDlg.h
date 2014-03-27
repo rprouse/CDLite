@@ -13,13 +13,13 @@
 // and forces the including project to link to the
 // library
 #ifndef BUILDING_LIBRARY
-#include <win/Library.h>
+#include <Library.h>
 #endif
 
 #ifdef BUILDING_LIBRARY
 #include "xShadeButton.h"
 #else
-#include <win/xShadeButton.h>
+#include <xShadeButton.h>
 #endif
 
 class CShadeDlg : public CDialog

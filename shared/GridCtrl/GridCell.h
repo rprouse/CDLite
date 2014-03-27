@@ -34,7 +34,7 @@ class CGridCtrl;
 #ifdef BUILDING_LIBRARY
 #include "GridCellBase.h"
 #else
-#include <win/GridCellBase.h>
+#include <GridCellBase.h>
 #endif
 
 // Each cell contains one of these. Fields "row" and "column" are not stored since we
