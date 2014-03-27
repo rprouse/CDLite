@@ -1,0 +1,82 @@
+<!-- Article Starts -->
+<UL class=download>
+  <LI><A 
+  href="http://www.codeproject.com/buttonctrl/CxShadeButton/CxShadeButton_src.zip">Download 
+  source files - 12 Kb</A> 
+  <LI><A 
+  href="http://www.codeproject.com/buttonctrl/CxShadeButton/CxShadeButton_demo.zip">Download 
+  demo project - 48 Kb</A> </LI></UL>
+<P><IMG height=197 alt="Sample Image - sample.gif" src="sample.gif" width=350></P>
+<!-- Main HTML starts here -->
+<P>With this class you can easily give a professional look to your buttons in 
+few steps.<br>
+<b>No resource is needed</b>: all bitmaps are generated runtime.<br>
+Code parts come from the <a href="http://www.codeproject.com/buttonctrl/CxSkinButton.asp">CxSkinButton</a> 
+article.
+<OL>
+<LI>Add "xShadeButton.cpp" and "xShadeButton.h" to the project.<BR>
+<LI>Include "xShadeButton.h" in the header file where the controls are defined<BR>
+<LI>In the resource editor check the "<b>Owner Draw</b>" property for the buttons 
+that you want to customize<BR>
+<LI>Create (or edit) a member variable for each button you want to customize as 
+<CODE>CxShadeButton</CODE>. If the Class Wizard doesn't show the <CODE>CxShadeButton</CODE> 
+type, select <CODE>CButton</CODE> and then edit the code manually.<BR>
+<LI>In the window initialization add the <CODE>CxShadeButton</CODE> methods: 
+<PRE>BOOL CxShadeButtonDemoDlg::OnInitDialog()
+{
+<SPAN class=cpp-comment>//	...</SPAN>
+	m_btn1.SetTextColor(RGB(<SPAN class=cpp-literal>255</SPAN>,<SPAN class=cpp-literal>0</SPAN>,<SPAN class=cpp-literal>0</SPAN>));
+	m_btn1.SetToolTipText(<SPAN class=cpp-string>"Button1"</SPAN>);
+	m_btn1.SetShade(SHS_DIAGSHADE,8,10,5,RGB(55,255,55));<br><SPAN class=cpp-comment>//	...</SPAN>
+</PRE>
+<P>The <CODE>SetTextColor</CODE> and <CODE>SetToolTipText</CODE> are optional and self explaining; 
+<CODE>SetShade</CODE> is:<BR>
+<CODE><SPAN 
+  class=cpp-keyword>void</SPAN> <b>CxShadeButton::SetShade</b>(UINT shadeID=0,BYTE 
+granularity=8,BYTE highlight=10,BYTE coloring=0,COLORREF color=0)</CODE></P>
+<UL>
+<LI><code><b>shadeID</b></code> = can be one of these effects:<BR>
+<code>SHS_NOISE = 0<BR>
+SHS_DIAGSHADE = 1<BR>
+SHS_HSHADE = 2<BR>
+SHS_VSHADE = 3<BR>
+SHS_HBUMP = 4<BR>
+SHS_VBUMP = 5<BR>
+SHS_SOFTBUMP =6<BR>
+SHS_HARDBUMP = 7<BR>
+SHS_METAL = 8<BR>
+</code> 
+<LI><code><b>granularity</b></code> = this parameter add an uniform noise to the 
+button bitmaps. A good value is from 5 to 20; 0 to disable the effect. The noise 
+has a positive effect because it hides the palette steps.
+<LI><code><b>highlight</b></code> = sets the highlight level when the mouse is 
+over the button. A good value is from 5 to 20; 0 to disable the effect.
+<LI><code><b>coloring</b></code> = sets the percentage of <code>color</code> to 
+blend in the button palette. The value can range from 0 to 100; 0 to disable the 
+effect.
+<LI><code><b>color</b></code> = if <code>coloring</code> is greater than zero, 
+<code>color</code> is mixed with the standard button colors. </LI>
+</UL>
+</LI>
+</OL>
+<H2>Remarks</H2>
+<UL>
+<LI>the <code>coloring</code> and <code>color</code> parameter should be used 
+carefully to guarantee a good aspect in all the situations.
+</UL>
+<H2>Release History</H2>
+<H4>v1.00 - 12/05/2001</H4>
+<blockquote>
+<p>basic implementation and interface.</p>
+</blockquote>
+<p></P>
+<H2>Compatibility</H2>Win95,WinNT = Yes, requires IE3.0 or higher<BR>
+Win98, WinME, W2k, Whistler = Yes 
+<P>For any questions, e-mail to: <A 
+href="mailto:ing.davide.pizzolato@libero.it">ing.davide.pizzolato@libero.it</A></P>
+<P>Thanks to all the Code Project developers!<BR>
+Special thanks to:<BR>
+Milan Gardian for mouse and keyboard tracking code.<br>
+<BR>
+</P>
+<!-- Article Ends -->

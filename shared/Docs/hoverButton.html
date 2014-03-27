@@ -1,0 +1,1041 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0053)http://www.codeproject.com/buttonctrl/hoverbutton.asp -->
+<HTML><HEAD><TITLE>The Code Project - CHoverButton - A simple hoverbutton with one bitmap and a tooltip - Button Controls</TITLE>
+<META content="text/html; charset=iso-8859-1" http-equiv=Content-Type>
+<META content=mailto:webmaster@codeproject.com http-equiv=Reply-to>
+<META content="Free source code and tutorials for Windows developers." 
+name=Description>
+<META 
+content="Free source code, Button Controls, Visual C++, MFC, Windows, TrackMouseEvent hover button" 
+name=keywords>
+<META 
+content="Article content copyright Niek Albers, 2000, everthing else © The Code Project 1999-2001, All Rights Reserved." 
+name=Copyright><LINK href="hoverButton_files/global.css" rel=stylesheet 
+type=text/css>
+<META content="MSHTML 5.00.3314.2100" name=GENERATOR></HEAD>
+<BODY aLink=red bgColor=white link=blue text=black vLink=purple>
+<TABLE bgColor=#ff9900 border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD width="100%">
+      <TABLE bgColor=#ff9900 border=0 cellPadding=0 cellSpacing=1 
+        width="100%"><TBODY>
+        <TR>
+          <TD vAlign=top><A href="http://www.codeproject.com/"><IMG 
+            alt="The Code Project" border=0 height=60 
+            src="hoverButton_files/cplogo.gif" width=120></A></TD>
+          <TD align=right><SPAN id=AdBanner6><A 
+            href="http://www.codeproject.com/script/admentor/admentorredir.asp?id=113&amp;way=ban" 
+            target=_blank><IMG 
+            alt="Click here for Dundas Consulting - experts in MFC, C++, TCP/IP and ASP" 
+            border=1 height=60 src="hoverButton_files/dundasconsulting.gif" 
+            width=468></A></SPAN></TD></TR>
+        <TR>
+          <TD bgColor=#fbedbb colSpan=2>
+            <TABLE bgColor=#fbedbb border=0 cellPadding=3 width="100%">
+              <TBODY>
+              <TR vAlign=top>
+                <TD width="100%"><FONT size=1 style="FONT-SIZE: 8pt"><A 
+                  href="http://www.codeproject.com/">Home</A> &gt;&gt; <A 
+                  href="http://www.codeproject.com/buttonctrl/">Button 
+                  Controls</A> &gt;&gt; <A 
+                  href="http://www.codeproject.com/buttonctrl/index.asp#General">General</A> 
+                  </FONT><BR><BR><B><FONT size=4 
+                  style="FONT-SIZE: 16pt">CHoverButton - A simple hoverbutton 
+                  with one bitmap and a tooltip</FONT></B><BR><B>By <A 
+                  href="mailto:nieka@daansystems.com">Niek Albers</A> 
+                  </B><BR><BR><FONT style="FONT-SIZE: 9pt">A simple drop-in 
+                  class that provides a 'hot' look button using the 
+                  _TrackMouseEvent function&nbsp;</FONT> </TD>
+                <TD align=right vAlign=top>
+                  <TABLE border=0 cellPadding=1 cellSpacing=0>
+                    <TBODY>
+                    <TR vAlign=top>
+                      <TD>&nbsp;</TD>
+                      <TD><FONT class=SmallText size=1>VC 4-6, Win95-98, NT4, 
+                        W2K, MFC</FONT></TD></TR>
+                    <TR>
+                      <TD>&nbsp;</TD>
+                      <TD noWrap><FONT class=SmallText size=1>Posted 13 Oct 
+                        2000</FONT></TD></TR>
+                    <TR vAlign=top>
+                      <TD><IMG height=16 src="hoverButton_files/hlp.gif" 
+                        width=16></TD>
+                      <TD noWrap><FONT class=SmallText size=1><A 
+                        href="http://www.codeproject.com/script/Articles/list_articles.asp?Author=Niek+Albers">Articles 
+                        by this author</A></FONT></TD></TR>
+                    <TR vAlign=top>
+                      <TD><IMG height=16 src="hoverButton_files/mail.gif" 
+                        width=16></TD>
+                      <TD><FONT class=SmallText size=1><A 
+                        href="http://www.codeproject.com/script/recommend/form.asp?pg=http%3A%2F%2Fwww%2Ecodeproject%2Ecom%2Fbuttonctrl%2Fhoverbutton%2Easp&amp;tt=CHoverButton+%2D+A+simple+hoverbutton+with+one+bitmap+and+a+tooltip">Send 
+                        to a friend</A></FONT></TD></TR>
+                    <TR vAlign=top>
+                      <TD><IMG height=16 src="hoverButton_files/print.gif" 
+                        width=16></TD>
+                      <TD noWrap><FONT class=SmallText size=1><A 
+                        href="http://www.codeproject.com/buttonctrl/hoverbutton.asp?print=true" 
+                        target=_print>Printer friendly 
+                    version</A></FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <SCRIPT>
+function Popup(elm) 
+{
+	elm.style.backgroundColor = "#ffcc99";
+	elm.style.borderTopColor = "white";
+	elm.style.borderLeftColor = "white";
+	elm.style.borderBottomColor = "#FBEDBB";
+	elm.style.borderRightColor = "#FBEDBB";
+	elm.style.borderStyle = "outset";
+	elm.style.padding = "1px 3px";
+	//window.status = elm.href;
+	return true;
+}
+function Popdown(elm) 
+{
+	elm.style.backgroundColor = "#FBEDBB";
+	elm.style.borderStyle = "none";
+	elm.style.padding = "2px 4px";
+	return true;
+}
+function Popin(elm) 
+{
+	elm.style.backgroundColor = "#ffcc99";
+	elm.style.borderTopColor = "#FBEDBB";
+	elm.style.borderLeftColor = "#FBEDBB";
+	elm.style.borderBottomColor = "white";
+	elm.style.borderRightColor = "white";
+	elm.style.borderStyle = "inset";
+	elm.style.padding = "1px 3px";
+	return true;
+}
+</SCRIPT>
+
+            <SCRIPT event=onmouseover for=HoverNL language=JavaScript>
+	return Popup( this);
+</SCRIPT>
+
+            <SCRIPT event=onfocus for=HoverNL language=JavaScript>
+	return Popup( this);
+</SCRIPT>
+
+            <SCRIPT event=onmouseout for=HoverNL language=JavaScript>
+	return Popdown( this);
+</SCRIPT>
+
+            <SCRIPT event=onblur for=HoverNL language=JavaScript>
+	return Popdown( this);
+</SCRIPT>
+
+            <SCRIPT event=onmousedown for=HoverNL language=JavaScript>
+	return Popin( this);
+</SCRIPT>
+
+            <SCRIPT event=onclick for=HoverNL language=JavaScript>
+	return Popin( this);
+</SCRIPT>
+
+            <TABLE bgColor=#fbedbb border=0 cellPadding=2 cellSpacing=0 
+            width="100%">
+              <TBODY>
+              <TR>
+                <FORM action=/info/search.asp method=post name=Search 
+                target=_top>
+                <TD align=middle vAlign=bottom>
+                  <TABLE border=0 cellPadding=1 cellSpacing=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=center><INPUT class=smalltext maxLength=255 
+                        name=target size=12></TD>
+                      <TD align=left vAlign=center width="100%"><INPUT class=formButton type=submit value=Search></TD></TR></TBODY></TABLE></TD></FORM>
+                <TD align=middle noWrap vAlign=center><A class=HoverLink 
+                  href="http://www.codeproject.com/lounge.asp" name=HoverNL 
+                  title="Visit the Lounge"><IMG align=top border=0 height=16 
+                  src="hoverButton_files/lounge_small.gif"> Lounge</A> </TD>
+                <TD align=middle noWrap vAlign=center><A class=HoverLink 
+                  href="http://www.codeproject.com/info/latest.asp" name=HoverNL 
+                  title="View the latest additions and updates at CodeProject"><IMG 
+                  align=top border=0 height=16 
+                  src="hoverButton_files/latest_small.gif"> New Articles</A> </TD>
+                <TD align=middle noWrap vAlign=center><A class=HoverLink 
+                  href="http://www.codeproject.com/script/profile/logon.asp?ct=%2Fbuttonctrl%2Fhoverbutton%2Easp" 
+                  name=HoverNL 
+                  title="Logon and Modify your profile and Newsletter subscription"><IMG 
+                  border=0 height=16 src="hoverButton_files/profile_small.gif"> 
+                  <B>Sign in</B></A> </TD>
+                <TD align=middle noWrap vAlign=center><A class=HoverLink 
+                  href="http://www.codeproject.com/script/comments/forums.asp" 
+                  name=HoverNL 
+                  title="Need an answer to a programming problem?"><IMG 
+                  align=top border=0 height=16 
+                  src="hoverButton_files/forums_small.gif"> <B>Forums</B></A> 
+</TD>
+                <TD align=middle noWrap vAlign=center><A class=HoverLink 
+                  href="http://www.codeproject.com/info/submit.html" 
+                  name=HoverNL 
+                  title="Got a cool article you want to share?"><IMG align=top 
+                  border=0 height=16 src="hoverButton_files/submit_small.gif"> 
+                  Contribute</A> 
+  </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD noWrap><SPAN class=smallText>Broken links? <A 
+      href="http://www.codeproject.com/script/common/mailform.asp?option=Article&amp;Title=CHoverButton+%2D+A+simple+hoverbutton+with+one+bitmap+and+a+tooltip&amp;URL=http%3A%2F%2Fwww%2Ecodeproject%2Ecom%2Fbuttonctrl%2Fhoverbutton%2Easp">Email 
+      us!</A></SPAN></TD>
+    <TD align=right width="100%"><A name=__top></A>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD align=right><FONT style="FONT-SIZE: 80%">21 users have rated 
+            this article. result:</FONT></TD>
+          <TD>
+            <TABLE border=2 cellPadding=0 cellSpacing=0>
+              <TBODY>
+              <TR>
+                <TD><IMG border=0 height=5 src="hoverButton_files/red.gif" 
+                  width=20></TD>
+                <TD><IMG border=0 height=5 src="hoverButton_files/red.gif" 
+                  width=20></TD>
+                <TD><IMG border=0 height=5 src="hoverButton_files/red.gif" 
+                  width=20></TD>
+                <TD><IMG border=0 height=5 src="hoverButton_files/red.gif" 
+                  width=20></TD>
+                <TD><IMG border=0 height=5 src="hoverButton_files/red.gif" 
+                  width=3><IMG border=0 height=5 
+                  src="hoverButton_files/white.gif" 
+          width=17></TD></TR></TBODY></TABLE></TD>
+          <TD><FONT style="FONT-SIZE: 80%"><B>4.14</B> out of 
+        5.</FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><!-- Article Starts --><!-- Download Links -->
+<LI class=download><A 
+href="http://www.codeproject.com/buttonctrl/hoverbutton/hoverbutton.zip">Download 
+demo project - 16 Kb</A> <!-- Article image -->
+<P><IMG alt="Sample Image - hoverbutton.gif" height=123 
+src="hoverButton_files/hoverbutton.gif" width=194></P><!-- Main HTML starts here -->
+<H2>Introduction</H2>
+<P>Looking around for some nice bitmap hover buttons, I just couldn't find what 
+I was looking for. In this case there are a couple of things you can do: 
+<OL>
+  <LI>Leave it. 
+  <LI>Buy it. 
+  <LI>Steal it. 
+  <LI>Get it for free. 
+  <LI>Start crying 
+  <LI>Do it yourself (and possibly share it.) </LI></OL>I'll share! <!-- create more blocks of article text as needed separated -->
+<P>I found another hoverbutton class that uses <CODE>SetCapture()</CODE> and 
+<CODE>ReleaseCapture()</CODE>. Using this method gives earlier or later some 
+problems. I can't remembre why, but it did to me. So I thought why do it so 
+difficult? MS has a nice API to handle hover states: 
+<CODE>_TrackMouseEvent()</CODE>. 
+<P>So here it, the class. After a long thought i decided to call it: 
+<CODE>CHoverButton</CODE>. I used some classes and information found elsewhere 
+(thanks to the people for that). 
+<H2>How to use it?</H2>
+<OL>
+  <LI>In you resource editor create a button and set the 'owner draw' 
+  property.<BR>
+  <LI>Use classwizard to create a <CODE>CButton</CODE> object in your dialog. 
+  <LI>Include the "hoverbutton.h" file in your dialog class file. 
+  <LI>Rename the <CODE>CButton</CODE> object type to <CODE>CHoverButton</CODE>. 
+  <LI>Create a bitmap with three buttonstates: Up/Down/Hover. The pictures need 
+  to be right next to each other.<BR>The button will calculate it's own 
+  <CODE>size = (the width of the bitmap)/<SPAN 
+  class=cpp-literal>3</SPAN></CODE>.<BR>You can use true color bitmaps here. See 
+  below for an example image. <BR><IMG height=40 
+  src="hoverButton_files/bitmap.jpg" width=120> 
+  <LI>In the <CODE>OnInitDialog()</CODE> load the bitmap with 
+  <CODE>mybutton.LoadBitmap(IDC_MYBUTTON)</CODE>; 
+  <LI>Set a tooltip with <CODE>mybutton.SetToolTipText();</CODE> 
+  <LI>Compile and enjoy. </LI></OL>
+<P>Have fun! <!-- Article Ends -->
+<FORM action=/script/rating/code/app/insert_vote.asp method=post><INPUT 
+name=vote_name type=hidden value=/buttonctrl/hoverbutton.asp> <INPUT name=goal 
+type=hidden value=/buttonctrl/hoverbutton.asp> 
+<TABLE bgColor=#ff9900 border=0 cellPadding=1 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD width="100%">
+      <TABLE bgColor=#fbedbb border=0 cellPadding=2 cellSpacing=0 
+        width="100%"><TBODY>
+        <TR>
+          <TD vAlign=center><A 
+            href="http://www.codeproject.com/buttonctrl/hoverbutton.asp#__top"><FONT 
+            style="FONT-SIZE: 9pt">[Top]</FONT></A></TD>
+          <TD align=right vAlign=center><A 
+            href="http://www.codeproject.com/script/profile/logon.asp?ct=%2Fbuttonctrl%2Fhoverbutton%2Easp"><B>Sign 
+            in</B></A> to vote for this article:&nbsp;&nbsp;&nbsp;&nbsp; 
+            <I>Poor</I><INPUT name=rate style="disabled: true" type=radio 
+            value=1><INPUT name=rate style="disabled: true" type=radio 
+            value=2><INPUT name=rate style="disabled: true" type=radio 
+            value=3><INPUT name=rate style="disabled: true" type=radio 
+            value=4><INPUT name=rate style="disabled: true" type=radio 
+            value=5><I>Excellent</I>&nbsp;&nbsp; <INPUT class=FormButton style="disabled: true" type=submit value=Vote></FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM>
+<SCRIPT language=JavaScript>
+var Selected = "";
+var AdTime = new Date();
+document.writeln("<iframe name=AdFrame width=0 height=0 frameborder=0></IFRAME>");
+</SCRIPT>
+
+<SCRIPT event=onclick for=DynMessLink language=JavaScript>
+	var now = new Date();
+	if (now - AdTime > 10000)
+	{
+		AdTime = now;
+		var loc = document.frames("AdFrame");
+		if (loc) loc = loc.document;
+		if (loc) loc = loc.location;
+		if (loc) loc.replace('/script/comments/fetchAd.asp');
+	}
+	//alert("hello");
+	var elmref;
+	if (Selected != "")
+	{
+		elmref = eval("document.all('" + Selected + "_h1')");
+		if (elmref) elmref.style.display = 'none';
+		elmref = eval("document.all('" + Selected + "_h0')");
+		if (elmref) elmref.bgColor = '#FEF9E7';
+	}
+	Selected = this.name;
+	
+	elmref = eval("document.all('" + this.name + "_h1')");
+	if (elmref) 
+	{
+		if (elmref.style.display=='none') elmref.style.display='';
+		else elmref.style.display = 'none';
+	}
+	elmref = eval("document.all('" + this.name + "_h0')");
+	if (elmref) 
+	{
+		elmref.bgColor = '#99CCFF';
+	}
+	window.navigate("#xx" + Selected + "xx");
+	return false;
+</SCRIPT>
+
+<TABLE bgColor=#ff9900 border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD width="100%">
+      <TABLE bgColor=#ff9900 border=0 cellPadding=0 cellSpacing=1 
+        width="100%"><FORM 
+        action=/script/comments/app/do_filtermessages.asp?main=/buttonctrl/hoverbutton.asp 
+        method=post>
+        <TBODY>
+        <TR>
+          <TD>
+            <TABLE bgColor=white border=0 cellPadding=3 cellSpacing=0 
+            width="100%">
+              <TBODY>
+              <TR bgColor=#fbedbb>
+                <TD class=smalltext colSpan=2 vAlign=top 
+width="100%">&nbsp;</TD>
+                <TD align=right class=smalltext colSpan=2 noWrap 
+                  vAlign=top>Keyword Filter <INPUT class=smalltext name=keywords 
+                  size=15></TD>
+                <TD align=right vAlign=top><INPUT class=FormButton name=submit type=submit value="Set Options"></TD></TR>
+              <TR bgColor=#ff9900>
+                <TD width="100%">&nbsp;</TD>
+                <TD class=smalltext noWrap vAlign=top>View <SELECT 
+                  class=smalltext name=expand size=1><OPTION 
+                    value=0>Normal</OPTION> <OPTION value=2>Preview</OPTION> 
+                    <OPTION selected value=5>Use 
+                DHTML</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                <TD class=smalltext noWrap vAlign=top>Per page <SELECT 
+                  class=smalltext name=perpage size=1><OPTION 
+                    value=10>10</OPTION> <OPTION selected 
+                  value=25>25</OPTION></SELECT></TD>
+                <TD class=smalltext noWrap vAlign=center>&nbsp;&nbsp;Messages 
+                  since </TD>
+                <TD class=smalltext vAlign=top><SELECT class=smalltext 
+                  name=datefilter size=1><OPTION value=0>5:30 18 May 
+                    01</OPTION> <OPTION value=1>Last Day</OPTION> <OPTION 
+                    value=2>Last Week</OPTION> <OPTION value=3>Last 
+                    Month</OPTION> <OPTION selected value=5>Last 6 
+                    Months</OPTION> <OPTION value=6>Last Year</OPTION> <OPTION 
+                    value=100>All</OPTION></SELECT></TD></TR></TBODY></TABLE></TD></TR></FORM>
+        <TR bgColor=#fbedbb>
+          <TD>
+            <TABLE bgColor=#fbedbb border=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD><FONT class=messagetitle><A class=HoverLink 
+                  href="http://www.codeproject.com/script/comments/user_new.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331" 
+                  name=HoverNL target=_top 
+                  title="Add a new message to the discussions"><B><IMG align=top 
+                  border=0 height=16 src="hoverButton_files/admin_modify.gif" 
+                  width=16> New thread</B></A></FONT></TD>
+                <TD><FONT class=messagetitle>Messages 1 to 9 of 9 (Total: 
+                  9)</FONT></TD>
+                <TD align=right><FONT class=messagetitle><SPAN 
+                  class=HoverLink>First</SPAN> <SPAN class=HoverLink>Prev</SPAN> 
+                  <SPAN class=HoverLink>Next</SPAN> <SPAN 
+                  class=HoverLink>Last</SPAN> </FONT></TD></TR></TBODY></TABLE></TD></TR>
+        <TR bgColor=white>
+          <TD>
+            <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD bgColor=#fbedbb width="70%">
+                  <TABLE border=0 cellPadding=2 cellSpacing=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD><FONT 
+                    class=messagetitle>Subject&nbsp;</FONT></TD></TR></TBODY></TABLE></TD>
+                <TD bgColor=#fbedbb width="20%">
+                  <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD><IMG border=0 height=1 src="hoverButton_files/t.gif" 
+                        width=1></TD></TR>
+                    <TR>
+                      <TD><FONT class=messagetitle>Author&nbsp;</FONT></TD></TR>
+                    <TR>
+                      <TD><IMG border=0 height=1 src="hoverButton_files/t.gif" 
+                        width=1></TD></TR></TBODY></TABLE></TD>
+                <TD bgColor=#fbedbb width="10%">
+                  <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD><IMG border=0 height=1 src="hoverButton_files/t.gif" 
+                        width=1></TD></TR>
+                    <TR>
+                      <TD align=right><FONT 
+                        class=messagetitle>Date&nbsp;</FONT></TD></TR>
+                    <TR>
+                      <TD><IMG border=0 height=1 src="hoverButton_files/t.gif" 
+                        width=1></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD colSpan=3><IMG border=0 height=5 
+                  src="hoverButton_files/t.gif" width=1></TD></TR>
+              <TR>
+                <TD colSpan=3><IMG border=0 height=6 
+                  src="hoverButton_files/t.gif" width=1></TD></TR>
+              <TR bgColor=#fef9e7 id=29391_h0>
+                <TD width="70%">
+                  <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx29391xx></A><IMG height=1 
+                        src="hoverButton_files/ind.gif" width=0><IMG 
+                        align=absMiddle 
+                        src="hoverButton_files/news_unselected.gif">&nbsp;</TD>
+                      <TD width="100%"><FONT class=messagetitle><A 
+                        href="http://www.codeproject.com/buttonctrl/hoverbutton.asp?forumid=1331&amp;select=29391#xx29391xx" 
+                        id=DynMessLink name=29391><B>Possible 
+                      Bug.</B></A></FONT></TD>
+                      <TD><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=6305"><IMG 
+                        border=0 height=13 src="hoverButton_files/userinfo.gif" 
+                        title="Confirmed post - See User Info" 
+                      width=15></A>&nbsp;</TD></TR></TBODY></TABLE></TD>
+                <TD noWrap width="20%"><FONT 
+                  class=messagetitle><B>Julien</B>&nbsp;</FONT></TD>
+                <TD align=right noWrap width="10%"><FONT 
+                  class=messagetitle><B>20:57 9 May 01</B>&nbsp;</FONT></TD></TR>
+              <TR id=29391_h1 style="DISPLAY: none">
+                <TD colSpan=3 width="100%">
+                  <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD><FONT class=messagetitle><IMG height=1 
+                        src="hoverButton_files/ind.gif" width=0><IMG 
+                        align=absMiddle 
+                        src="hoverButton_files/news_none.gif">&nbsp;</FONT></TD>
+                      <TD bgColor=#d5eaff width="100%">
+                        <TABLE border=0 cellPadding=0 cellSpacing=5 
+width="100%">
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE border=0 cellPadding=0 cellSpacing=0 
+                              width="100%">
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>This 
+                                class it really nice - thanks for the 
+                                effort.<BR>I don't know what the side effect 
+                                might be but in your <BR>PreTranslateMessage in 
+                                your new class you are calling 
+                                <BR>CButton::PreTranslateMessage<BR>and 
+                                not<BR>CBitmapButton::PreTranslateMessage<BR>and 
+                                therefore skipping anything that CBitmapButton 
+                                might have 
+                                done.<BR><BR>Julien.<BR>&nbsp;</FONT></TD></TR>
+                                <TR>
+                                <TD><FONT class=messagetitle>[<A 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=29391" 
+                                title="Reply to this current thread">Reply</A>][<A 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=29391" 
+                                title="Email a reply to the author of this message">Email 
+                                author</A>][<A 
+                                href="http://www.codeproject.com/buttonctrl/hoverbutton.asp?tid=29391&amp;forumid=1331&amp;select=29391#xx29391xx" 
+                                title="View only messages within this thread">View 
+                                Thread</A>]</FONT></TD>
+                                <TD align=right><FONT class=messagetitle>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=29391"><FONT 
+                                class=messagetitle><I>Modify</I></A>][<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=29391"><FONT 
+                                class=messagetitle><I>Delete</I></A>]</FONT></FONT></FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD colSpan=3><IMG border=0 height=6 
+                  src="hoverButton_files/t.gif" width=1></TD></TR>
+              <TR bgColor=#fef9e7 id=29605_h0>
+                <TD width="70%">
+                  <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx29605xx></A><IMG height=1 
+                        src="hoverButton_files/ind.gif" width=18><IMG 
+                        align=absMiddle 
+                        src="hoverButton_files/news_unselected.gif">&nbsp;</TD>
+                      <TD width="100%"><FONT class=messagetitle><A 
+                        href="http://www.codeproject.com/buttonctrl/hoverbutton.asp?forumid=1331&amp;select=29605#xx29605xx" 
+                        id=DynMessLink name=29605>Re: Possible 
+Bug.</A></FONT></TD>
+                      <TD><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=12504"><IMG 
+                        border=0 height=13 src="hoverButton_files/userinfo.gif" 
+                        title="Confirmed post - See User Info" 
+                      width=15></A>&nbsp;</TD></TR></TBODY></TABLE></TD>
+                <TD noWrap width="20%"><FONT class=messagetitle>Earl Rex 
+                  Arao-arao&nbsp;</FONT></TD>
+                <TD align=right noWrap width="10%"><FONT 
+                  class=messagetitle>4:10 11 May 01&nbsp;</FONT></TD></TR>
+              <TR id=29605_h1 style="DISPLAY: none">
+                <TD colSpan=3 width="100%">
+                  <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD><FONT class=messagetitle><IMG height=1 
+                        src="hoverButton_files/ind.gif" width=18><IMG 
+                        align=absMiddle 
+                        src="hoverButton_files/news_none.gif">&nbsp;</FONT></TD>
+                      <TD bgColor=#d5eaff width="100%">
+                        <TABLE border=0 cellPadding=0 cellSpacing=5 
+width="100%">
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE border=0 cellPadding=0 cellSpacing=0 
+                              width="100%">
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>I don't 
+                                think it's a bug since CButton object is 
+                                supposed to processed the message and not the 
+                                CBitmap.<IMG align=absMiddle 
+                                src="hoverButton_files/smiley_smile.gif"><BR><BR>earl<BR>&nbsp;</FONT></TD></TR>
+                                <TR>
+                                <TD><FONT class=messagetitle>[<A 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=29605" 
+                                title="Reply to this current thread">Reply</A>][<A 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=29605" 
+                                title="Email a reply to the author of this message">Email 
+                                author</A>][<A 
+                                href="http://www.codeproject.com/buttonctrl/hoverbutton.asp?tid=29391&amp;forumid=1331&amp;select=29605#xx29605xx" 
+                                title="View only messages within this thread">View 
+                                Thread</A>]</FONT></TD>
+                                <TD align=right><FONT class=messagetitle>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=29605"><FONT 
+                                class=messagetitle><I>Modify</I></A>][<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=29605"><FONT 
+                                class=messagetitle><I>Delete</I></A>]</FONT></FONT></FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD colSpan=3><IMG border=0 height=5 
+                  src="hoverButton_files/t.gif" width=1></TD></TR>
+              <TR height=1>
+                <TD bgColor=#ff9900 colSpan=3 height=1></TD></TR>
+              <TR bgColor=#fef9e7 id=24782_h0>
+                <TD width="70%">
+                  <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx24782xx></A><IMG height=1 
+                        src="hoverButton_files/ind.gif" width=0><IMG 
+                        align=absMiddle 
+                        src="hoverButton_files/news_unselected.gif">&nbsp;</TD>
+                      <TD width="100%"><FONT class=messagetitle><A 
+                        href="http://www.codeproject.com/buttonctrl/hoverbutton.asp?forumid=1331&amp;select=24782#xx24782xx" 
+                        id=DynMessLink name=24782><B>help</B></A></FONT></TD>
+                      <TD><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=6577"><IMG 
+                        border=0 height=13 src="hoverButton_files/userinfo.gif" 
+                        title="Confirmed post - See User Info" 
+                      width=15></A>&nbsp;</TD></TR></TBODY></TABLE></TD>
+                <TD noWrap width="20%"><FONT 
+                  class=messagetitle><B>zhang</B>&nbsp;</FONT></TD>
+                <TD align=right noWrap width="10%"><FONT 
+                  class=messagetitle><B>3:03 4 Apr 01</B>&nbsp;</FONT></TD></TR>
+              <TR id=24782_h1 style="DISPLAY: none">
+                <TD colSpan=3 width="100%">
+                  <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD><FONT class=messagetitle><IMG height=1 
+                        src="hoverButton_files/ind.gif" width=0><IMG 
+                        align=absMiddle 
+                        src="hoverButton_files/news_none.gif">&nbsp;</FONT></TD>
+                      <TD bgColor=#d5eaff width="100%">
+                        <TABLE border=0 cellPadding=0 cellSpacing=5 
+width="100%">
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE border=0 cellPadding=0 cellSpacing=0 
+                              width="100%">
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>my 
+                                english and VC++ is both poor,i wish you tell me 
+                                ChoverButton::ActivateToolTip() function is not 
+                                never used? thank you very 
+                                much.<BR>&nbsp;</FONT></TD></TR>
+                                <TR>
+                                <TD><FONT class=messagetitle>[<A 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=24782" 
+                                title="Reply to this current thread">Reply</A>][<A 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=24782" 
+                                title="Email a reply to the author of this message">Email 
+                                author</A>][<A 
+                                href="http://www.codeproject.com/buttonctrl/hoverbutton.asp?tid=24782&amp;forumid=1331&amp;select=24782#xx24782xx" 
+                                title="View only messages within this thread">View 
+                                Thread</A>]</FONT></TD>
+                                <TD align=right><FONT class=messagetitle>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=24782"><FONT 
+                                class=messagetitle><I>Modify</I></A>][<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=24782"><FONT 
+                                class=messagetitle><I>Delete</I></A>]</FONT></FONT></FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD colSpan=3><IMG border=0 height=6 
+                  src="hoverButton_files/t.gif" width=1></TD></TR>
+              <TR bgColor=#fef9e7 id=24795_h0>
+                <TD width="70%">
+                  <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx24795xx></A><IMG height=1 
+                        src="hoverButton_files/ind.gif" width=18><IMG 
+                        align=absMiddle 
+                      src="hoverButton_files/news_suss.gif">&nbsp;</TD>
+                      <TD width="100%"><FONT class=messagetitle 
+                        color=#707070><A 
+                        href="http://www.codeproject.com/buttonctrl/hoverbutton.asp?forumid=1331&amp;select=24795#xx24795xx" 
+                        id=DynMessLink name=24795>Re: help</A></FONT></TD>
+                      <TD><IMG alt="Unconfirmed/Anonymous posting" height=13 
+                        src="hoverButton_files/usersuss.gif" 
+                      width=15></A>&nbsp;</TD></TR></TBODY></TABLE></TD>
+                <TD noWrap width="20%"><FONT class=messagetitle 
+                  color=#707070>Anonymous&nbsp;</FONT></TD>
+                <TD align=right noWrap width="10%"><FONT class=messagetitle 
+                  color=#707070>3:57 4 Apr 01&nbsp;</FONT></TD></TR>
+              <TR id=24795_h1 style="DISPLAY: none">
+                <TD colSpan=3 width="100%">
+                  <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD><FONT class=messagetitle color=#707070><IMG height=1 
+                        src="hoverButton_files/ind.gif" width=18><IMG 
+                        align=absMiddle 
+                        src="hoverButton_files/news_none.gif">&nbsp;</FONT></TD>
+                      <TD bgColor=#d5eaff width="100%">
+                        <TABLE border=0 cellPadding=0 cellSpacing=5 
+width="100%">
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE border=0 cellPadding=0 cellSpacing=0 
+                              width="100%">
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>No, but 
+                                you can use it 
+                                yourself.....<BR>&nbsp;</FONT></TD></TR>
+                                <TR>
+                                <TD><FONT class=messagetitle>[<A 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=24795" 
+                                title="Reply to this current thread">Reply</A>][<A 
+                                href="http://www.codeproject.com/buttonctrl/hoverbutton.asp?tid=24782&amp;forumid=1331&amp;select=24795#xx24795xx" 
+                                title="View only messages within this thread">View 
+                                Thread</A>]</FONT></TD>
+                                <TD align=right><FONT class=messagetitle>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=24795"><FONT 
+                                class=messagetitle><I>Modify</I></A>][<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=24795"><FONT 
+                                class=messagetitle><I>Delete</I></A>]</FONT></FONT></FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD colSpan=3><IMG border=0 height=6 
+                  src="hoverButton_files/t.gif" width=1></TD></TR>
+              <TR bgColor=#fef9e7 id=29611_h0>
+                <TD width="70%">
+                  <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx29611xx></A><IMG height=1 
+                        src="hoverButton_files/ind.gif" width=18><IMG 
+                        align=absMiddle 
+                        src="hoverButton_files/news_unselected.gif">&nbsp;</TD>
+                      <TD width="100%"><FONT class=messagetitle><A 
+                        href="http://www.codeproject.com/buttonctrl/hoverbutton.asp?forumid=1331&amp;select=29611#xx29611xx" 
+                        id=DynMessLink name=29611>Re: help</A></FONT></TD>
+                      <TD><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=12504"><IMG 
+                        border=0 height=13 src="hoverButton_files/userinfo.gif" 
+                        title="Confirmed post - See User Info" 
+                      width=15></A>&nbsp;</TD></TR></TBODY></TABLE></TD>
+                <TD noWrap width="20%"><FONT class=messagetitle>Earl Rex 
+                  Arao-arao&nbsp;</FONT></TD>
+                <TD align=right noWrap width="10%"><FONT 
+                  class=messagetitle>4:37 11 May 01&nbsp;</FONT></TD></TR>
+              <TR id=29611_h1 style="DISPLAY: none">
+                <TD colSpan=3 width="100%">
+                  <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD><FONT class=messagetitle><IMG height=1 
+                        src="hoverButton_files/ind.gif" width=18><IMG 
+                        align=absMiddle 
+                        src="hoverButton_files/news_none.gif">&nbsp;</FONT></TD>
+                      <TD bgColor=#d5eaff width="100%">
+                        <TABLE border=0 cellPadding=0 cellSpacing=5 
+width="100%">
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE border=0 cellPadding=0 cellSpacing=0 
+                              width="100%">
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>I have 
+                                omitted the said function and the application 
+                                still runs. Maybe it was part of the class and 
+                                then forget to erase it afterwards.<IMG 
+                                align=absMiddle 
+                                src="hoverButton_files/smiley_smile.gif"><BR><BR>earl<BR>&nbsp;</FONT></TD></TR>
+                                <TR>
+                                <TD><FONT class=messagetitle>[<A 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=29611" 
+                                title="Reply to this current thread">Reply</A>][<A 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=29611" 
+                                title="Email a reply to the author of this message">Email 
+                                author</A>][<A 
+                                href="http://www.codeproject.com/buttonctrl/hoverbutton.asp?tid=24782&amp;forumid=1331&amp;select=29611#xx29611xx" 
+                                title="View only messages within this thread">View 
+                                Thread</A>]</FONT></TD>
+                                <TD align=right><FONT class=messagetitle>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=29611"><FONT 
+                                class=messagetitle><I>Modify</I></A>][<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=29611"><FONT 
+                                class=messagetitle><I>Delete</I></A>]</FONT></FONT></FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD colSpan=3><IMG border=0 height=5 
+                  src="hoverButton_files/t.gif" width=1></TD></TR>
+              <TR height=1>
+                <TD bgColor=#ff9900 colSpan=3 height=1></TD></TR>
+              <TR bgColor=#fef9e7 id=14608_h0>
+                <TD width="70%">
+                  <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx14608xx></A><IMG height=1 
+                        src="hoverButton_files/ind.gif" width=0><IMG 
+                        align=absMiddle 
+                        src="hoverButton_files/news_unselected.gif">&nbsp;</TD>
+                      <TD width="100%"><FONT class=messagetitle><A 
+                        href="http://www.codeproject.com/buttonctrl/hoverbutton.asp?forumid=1331&amp;select=14608#xx14608xx" 
+                        id=DynMessLink name=14608><B>Windows 
+95</B></A></FONT></TD>
+                      <TD><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=5872"><IMG 
+                        border=0 height=13 src="hoverButton_files/userinfo.gif" 
+                        title="Confirmed post - See User Info" 
+                      width=15></A>&nbsp;</TD></TR></TBODY></TABLE></TD>
+                <TD noWrap width="20%"><FONT class=messagetitle><B>Michael 
+                  Groeger</B>&nbsp;</FONT></TD>
+                <TD align=right noWrap width="10%"><FONT 
+                  class=messagetitle><B>9:47 13 Dec 00</B>&nbsp;</FONT></TD></TR>
+              <TR id=14608_h1 style="DISPLAY: none">
+                <TD colSpan=3 width="100%">
+                  <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD><FONT class=messagetitle><IMG height=1 
+                        src="hoverButton_files/ind.gif" width=0><IMG 
+                        align=absMiddle 
+                        src="hoverButton_files/news_none.gif">&nbsp;</FONT></TD>
+                      <TD bgColor=#d5eaff width="100%">
+                        <TABLE border=0 cellPadding=0 cellSpacing=5 
+width="100%">
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE border=0 cellPadding=0 cellSpacing=0 
+                              width="100%">
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>I just 
+                                read your article. It is pretty cool, I must 
+                                say. But what happens if the user has Windows 95 
+                                installed? I just walked through MSDN to 
+                                understand your code and found the following 
+                                about TRACKMOUSEEVENT:<BR><BR>Requirements 
+                                <BR>Windows NT/2000: Requires Windows NT 4.0 or 
+                                later.<BR>Windows 95/98: Requires Windows 
+                                98.<BR>Header: Declared in Winuser.h; include 
+                                Windows.h.<BR><BR>Hugh. And 
+                                now?<BR>&nbsp;</FONT></TD></TR>
+                                <TR>
+                                <TD><FONT class=messagetitle>[<A 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=14608" 
+                                title="Reply to this current thread">Reply</A>][<A 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=14608" 
+                                title="Email a reply to the author of this message">Email 
+                                author</A>][<A 
+                                href="http://www.codeproject.com/buttonctrl/hoverbutton.asp?tid=14608&amp;forumid=1331&amp;select=14608#xx14608xx" 
+                                title="View only messages within this thread">View 
+                                Thread</A>]</FONT></TD>
+                                <TD align=right><FONT class=messagetitle>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=14608"><FONT 
+                                class=messagetitle><I>Modify</I></A>][<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=14608"><FONT 
+                                class=messagetitle><I>Delete</I></A>]</FONT></FONT></FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD colSpan=3><IMG border=0 height=6 
+                  src="hoverButton_files/t.gif" width=1></TD></TR>
+              <TR bgColor=#fef9e7 id=14965_h0>
+                <TD width="70%">
+                  <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx14965xx></A><IMG height=1 
+                        src="hoverButton_files/ind.gif" width=18><IMG 
+                        align=absMiddle 
+                      src="hoverButton_files/news_suss.gif">&nbsp;</TD>
+                      <TD width="100%"><FONT class=messagetitle 
+                        color=#707070><A 
+                        href="http://www.codeproject.com/buttonctrl/hoverbutton.asp?forumid=1331&amp;select=14965#xx14965xx" 
+                        id=DynMessLink name=14965>Re: Windows 95</A></FONT></TD>
+                      <TD><IMG alt="Unconfirmed/Anonymous posting" height=13 
+                        src="hoverButton_files/usersuss.gif" 
+                      width=15></A>&nbsp;</TD></TR></TBODY></TABLE></TD>
+                <TD noWrap width="20%"><FONT class=messagetitle 
+                  color=#707070>Anonymous&nbsp;</FONT></TD>
+                <TD align=right noWrap width="10%"><FONT class=messagetitle 
+                  color=#707070>8:53 19 Dec 00&nbsp;</FONT></TD></TR>
+              <TR id=14965_h1 style="DISPLAY: none">
+                <TD colSpan=3 width="100%">
+                  <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD><FONT class=messagetitle color=#707070><IMG height=1 
+                        src="hoverButton_files/ind.gif" width=18><IMG 
+                        align=absMiddle 
+                        src="hoverButton_files/news_none.gif">&nbsp;</FONT></TD>
+                      <TD bgColor=#d5eaff width="100%">
+                        <TABLE border=0 cellPadding=0 cellSpacing=5 
+width="100%">
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE border=0 cellPadding=0 cellSpacing=0 
+                              width="100%">
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT 
+                                class=messagecontent>_TrackMouseEvent is used 
+                                and not 
+                                TrackMouseEvent.<BR><BR><BR>&nbsp;</FONT></TD></TR>
+                                <TR>
+                                <TD><FONT class=messagetitle>[<A 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=14965" 
+                                title="Reply to this current thread">Reply</A>][<A 
+                                href="http://www.codeproject.com/buttonctrl/hoverbutton.asp?tid=14608&amp;forumid=1331&amp;select=14965#xx14965xx" 
+                                title="View only messages within this thread">View 
+                                Thread</A>]</FONT></TD>
+                                <TD align=right><FONT class=messagetitle>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=14965"><FONT 
+                                class=messagetitle><I>Modify</I></A>][<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=14965"><FONT 
+                                class=messagetitle><I>Delete</I></A>]</FONT></FONT></FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD colSpan=3><IMG border=0 height=5 
+                  src="hoverButton_files/t.gif" width=1></TD></TR>
+              <TR height=1>
+                <TD bgColor=#ff9900 colSpan=3 height=1></TD></TR>
+              <TR bgColor=#fef9e7 id=13678_h0>
+                <TD width="70%">
+                  <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx13678xx></A><IMG height=1 
+                        src="hoverButton_files/ind.gif" width=0><IMG 
+                        align=absMiddle 
+                      src="hoverButton_files/news_suss.gif">&nbsp;</TD>
+                      <TD width="100%"><FONT class=messagetitle 
+                        color=#707070><A 
+                        href="http://www.codeproject.com/buttonctrl/hoverbutton.asp?forumid=1331&amp;select=13678#xx13678xx" 
+                        id=DynMessLink name=13678><B>Back ground Color of the 
+                        button.</B></A></FONT></TD>
+                      <TD><IMG alt="Unconfirmed/Anonymous posting" height=13 
+                        src="hoverButton_files/usersuss.gif" 
+                      width=15></A>&nbsp;</TD></TR></TBODY></TABLE></TD>
+                <TD noWrap width="20%"><FONT class=messagetitle 
+                  color=#707070><B>Neha</B>&nbsp;</FONT></TD>
+                <TD align=right noWrap width="10%"><FONT class=messagetitle 
+                  color=#707070><B>3:39 2 Dec 00</B>&nbsp;</FONT></TD></TR>
+              <TR id=13678_h1 style="DISPLAY: none">
+                <TD colSpan=3 width="100%">
+                  <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD><FONT class=messagetitle color=#707070><IMG height=1 
+                        src="hoverButton_files/ind.gif" width=0><IMG 
+                        align=absMiddle 
+                        src="hoverButton_files/news_none.gif">&nbsp;</FONT></TD>
+                      <TD bgColor=#d5eaff width="100%">
+                        <TABLE border=0 cellPadding=0 cellSpacing=5 
+width="100%">
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE border=0 cellPadding=0 cellSpacing=0 
+                              width="100%">
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>It is 
+                                really nice.But i am facing one problem ie,when 
+                                my window color is not gray that button will be 
+                                displayed with gray background.How do i make the 
+                                back ground color of the button to window 
+                                color?<BR>Thanks.<BR>Neha<BR><BR>&nbsp;</FONT></TD></TR>
+                                <TR>
+                                <TD><FONT class=messagetitle>[<A 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=13678" 
+                                title="Reply to this current thread">Reply</A>][<A 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=13678" 
+                                title="Email a reply to the author of this message">Email 
+                                author</A>][<A 
+                                href="http://www.codeproject.com/buttonctrl/hoverbutton.asp?tid=13678&amp;forumid=1331&amp;select=13678#xx13678xx" 
+                                title="View only messages within this thread">View 
+                                Thread</A>]</FONT></TD>
+                                <TD align=right><FONT class=messagetitle>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=13678"><FONT 
+                                class=messagetitle><I>Modify</I></A>][<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=13678"><FONT 
+                                class=messagetitle><I>Delete</I></A>]</FONT></FONT></FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD colSpan=3><IMG border=0 height=5 
+                  src="hoverButton_files/t.gif" width=1></TD></TR>
+              <TR height=1>
+                <TD bgColor=#ff9900 colSpan=3 height=1></TD></TR>
+              <TR bgColor=#fef9e7 id=6554_h0>
+                <TD width="70%">
+                  <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx6554xx></A><IMG height=1 
+                        src="hoverButton_files/ind.gif" width=0><IMG 
+                        align=absMiddle 
+                      src="hoverButton_files/news_suss.gif">&nbsp;</TD>
+                      <TD width="100%"><FONT class=messagetitle 
+                        color=#707070><A 
+                        href="http://www.codeproject.com/buttonctrl/hoverbutton.asp?forumid=1331&amp;select=6554#xx6554xx" 
+                        id=DynMessLink name=6554><B>Seems pretty 
+                        good.</B></A></FONT></TD>
+                      <TD><IMG alt="Unconfirmed/Anonymous posting" height=13 
+                        src="hoverButton_files/usersuss.gif" 
+                      width=15></A>&nbsp;</TD></TR></TBODY></TABLE></TD>
+                <TD noWrap width="20%"><FONT class=messagetitle 
+                  color=#707070><B>D. Adams</B>&nbsp;</FONT></TD>
+                <TD align=right noWrap width="10%"><FONT class=messagetitle 
+                  color=#707070><B>19:37 16 Oct 00</B>&nbsp;</FONT></TD></TR>
+              <TR id=6554_h1 style="DISPLAY: none">
+                <TD colSpan=3 width="100%">
+                  <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD><FONT class=messagetitle color=#707070><IMG height=1 
+                        src="hoverButton_files/ind.gif" width=0><IMG 
+                        align=absMiddle 
+                        src="hoverButton_files/news_none.gif">&nbsp;</FONT></TD>
+                      <TD bgColor=#d5eaff width="100%">
+                        <TABLE border=0 cellPadding=0 cellSpacing=5 
+width="100%">
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE border=0 cellPadding=0 cellSpacing=0 
+                              width="100%">
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>I too 
+                                have had the fun of finding a good hover button 
+                                class. Since "Get it for Free" and "Start 
+                                Crying" seemed to always go together for me, I 
+                                approach this new freebie with a bit of 
+                                skepticism. However, it avoids the usual 
+                                pitfalls that I have seen before. Perhaps I'll 
+                                plug it in and see what happens</FONT>
+                                <TR>
+                                <TD><FONT class=messagetitle>[<A 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=6554" 
+                                title="Reply to this current thread">Reply</A>][<A 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=6554" 
+                                title="Email a reply to the author of this message">Email 
+                                author</A>][<A 
+                                href="http://www.codeproject.com/buttonctrl/hoverbutton.asp?tid=6554&amp;forumid=1331&amp;select=6554#xx6554xx" 
+                                title="View only messages within this thread">View 
+                                Thread</A>]</FONT></TD>
+                                <TD align=right><FONT class=messagetitle>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=6554"><FONT 
+                                class=messagetitle><I>Modify</I></A>][<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/buttonctrl/hoverbutton.asp&amp;forumid=1331&amp;select=6554"><FONT 
+                                class=messagetitle><I>Delete</I></A>]</FONT></FONT></FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD colSpan=3><IMG border=0 height=5 
+                  src="hoverButton_files/t.gif" 
+        width=1></TD></TR></TBODY></TABLE></TD></TR>
+        <TR bgColor=#fbedbb>
+          <TD>
+            <TABLE width="100%">
+              <TBODY>
+              <TR>
+                <TD><FONT class=messagetitle>Last Visit: 5:30 Friday 18th May, 
+                  2001</FONT></TD>
+                <TD align=right><FONT class=messagetitle><SPAN 
+                  class=HoverLink>First</SPAN> <SPAN class=HoverLink>Prev</SPAN> 
+                  <SPAN class=HoverLink>Next</SPAN> <SPAN 
+                  class=HoverLink>Last</SPAN> 
+        </FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><!-- Footer -->
+<TABLE bgColor=#ff9900 border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD width="100%">
+      <TABLE bgColor=#ff9900 border=0 cellPadding=0 cellSpacing=1 
+        width="100%"><TBODY>
+        <TR>
+          <TD bgColor=#fbedbb colSpan=2>
+            <TABLE cellSpacing=5 width="100%">
+              <TBODY>
+              <TR vAlign=top>
+                <TD><FONT size=1 style="FONT-SIZE: 7pt"><A 
+                  href="http://www.codeproject.com/">Home</A> &gt;&gt; <A 
+                  href="http://www.codeproject.com/buttonctrl/">Button 
+                  Controls</A> &gt;&gt; <A 
+                  href="http://www.codeproject.com/buttonctrl/index.asp#General">General</A> 
+                  <BR>last updated 13 Oct 2000 </FONT></TD>
+                <TD align=right><FONT size=1 style="FONT-SIZE: 7pt">Article 
+                  content copyright Niek Albers, 2000<BR>everthing else © <A 
+                  href="mailto:webmaster@codeproject.com">CodeProject</A>, 
+                  1999-2001. </FONT></TD></TR></TBODY></TABLE></TD></TR><!-- Logo and advertisement -->
+        <TR>
+          <TD><A href="http://www.codeproject.com/"><IMG 
+            alt="The Code Project" border=0 height=60 
+            src="hoverButton_files/cplogo.gif" width=120></A> </TD>
+          <TD align=right><SPAN id=AdBanner7><A 
+            href="http://www.codeproject.com/script/admentor/admentorredir.asp?id=112&amp;way=ban" 
+            target=_blank><IMG 
+            alt="Click here for Dundas Software's TCP/IP Development Kit" 
+            border=1 height=60 src="hoverButton_files/tcpip_banner4.gif" 
+            width=468></A></SPAN> 
+</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></P></LI></BODY></HTML>

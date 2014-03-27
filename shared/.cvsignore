@@ -1,0 +1,14 @@
+Debug
+Release
+tmp
+*.aps
+*.clw
+*.ncb
+*.opt
+*.plg
+*.txt
+*.GID
+*.snp
+*.bce
+AutoBuild.h
+*.positions

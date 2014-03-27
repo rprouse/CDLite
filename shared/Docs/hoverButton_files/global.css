@@ -1,0 +1,252 @@
+BODY {
+	COLOR: black; FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif; FONT-SIZE: 10pt
+}
+P {
+	COLOR: black; FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif; FONT-SIZE: 10pt
+}
+H1 {
+	COLOR: black; FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif; FONT-SIZE: 10pt
+}
+H2 {
+	COLOR: black; FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif; FONT-SIZE: 10pt
+}
+H3 {
+	COLOR: black; FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif; FONT-SIZE: 10pt
+}
+H4 {
+	COLOR: black; FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif; FONT-SIZE: 10pt
+}
+H5 {
+	COLOR: black; FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif; FONT-SIZE: 10pt
+}
+H6 {
+	COLOR: black; FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif; FONT-SIZE: 10pt
+}
+LI {
+	COLOR: black; FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif; FONT-SIZE: 10pt
+}
+TD {
+	COLOR: black; FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif; FONT-SIZE: 10pt
+}
+TH {
+	COLOR: black; FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif; FONT-SIZE: 10pt
+}
+DD {
+	COLOR: black; FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif; FONT-SIZE: 10pt
+}
+DT {
+	COLOR: black; FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif; FONT-SIZE: 10pt
+}
+BODY {
+	BACKGROUND-COLOR: #ffffff; COLOR: #000000
+}
+LI {
+	LIST-STYLE: none
+}
+UL {
+	LIST-STYLE: none
+}
+OL {
+	LIST-STYLE: none
+}
+H1 {
+	FONT-WEIGHT: bold
+}
+H2 {
+	FONT-WEIGHT: bold
+}
+H3 {
+	FONT-WEIGHT: bold
+}
+H4 {
+	FONT-WEIGHT: bold
+}
+H5 {
+	FONT-WEIGHT: bold
+}
+TH {
+	FONT-WEIGHT: bold
+}
+H2 {
+	COLOR: #ff9900
+}
+H3 {
+	COLOR: #ff9900
+}
+H5 {
+	COLOR: #ff9900
+}
+H1 {
+	FONT-SIZE: 16pt
+}
+H2 {
+	FONT-SIZE: 13pt
+}
+H3 {
+	FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 11pt
+}
+H4 {
+	FONT-SIZE: 10pt; MARGIN-BOTTOM: 0px; MARGIN-TOP: 2px
+}
+H5 {
+	FONT-SIZE: 9pt; FONT-WEIGHT: bold; MARGIN-BOTTOM: 2px
+}
+H6 {
+	COLOR: #626262; FONT-SIZE: 65%; FONT-WEIGHT: normal
+}
+DD {
+	MARGIN-LEFT: 20px
+}
+PRE {
+	BACKGROUND-COLOR: #fbedbb; BACKGROUND-IMAGE: url(/images/codebg.gif); FONT: 10pt "Courier New", Courier, mono; PADDING-BOTTOM: 5pt; PADDING-LEFT: 5pt; PADDING-RIGHT: 5pt; PADDING-TOP: 5pt; WHITE-SPACE: pre; WIDTH: 100%
+}
+CODE {
+	COLOR: #990000; FONT-FAMILY: "Courier New", Courier, mono
+}
+A:link {
+	TEXT-DECORATION: none
+}
+A:visited {
+	TEXT-DECORATION: none
+}
+A:active {
+	TEXT-DECORATION: underline
+}
+A:hover {
+	TEXT-DECORATION: underline
+}
+.top {
+	CURSOR: hand
+}
+.MenuGroup {
+	BACKGROUND-COLOR: #ffcc99; CURSOR: hand; FONT-FAMILY: Tahoma, Arial, sans-serif; FONT-WEIGHT: normal; POSITION: relative; TOP: 0px; WIDTH: 124px
+}
+.MI {
+	BACKGROUND-COLOR: #ffcc99; COLOR: black; CURSOR: hand; FONT-FAMILY: Verdana, Arial, sans-serif; FONT-SIZE: 8pt; FONT-WEIGHT: normal; WIDTH: 118px
+}
+.MIs {
+	BACKGROUND-COLOR: #ffcc99; COLOR: black; CURSOR: hand; FONT-FAMILY: Verdana, Arial, sans-serif; FONT-SIZE: 8pt; FONT-WEIGHT: normal; WIDTH: 118px
+}
+.MIn {
+	BACKGROUND-COLOR: #ffcc99; COLOR: black; CURSOR: hand; FONT-FAMILY: Verdana, Arial, sans-serif; FONT-SIZE: 8pt; FONT-WEIGHT: normal; WIDTH: 118px
+}
+.MIsn {
+	BACKGROUND-COLOR: #ffcc99; COLOR: black; CURSOR: hand; FONT-FAMILY: Verdana, Arial, sans-serif; FONT-SIZE: 8pt; FONT-WEIGHT: normal; WIDTH: 118px
+}
+.MI {
+	TEXT-DECORATION: none
+}
+.MIn {
+	TEXT-DECORATION: none
+}
+.MI {
+	MARGIN-LEFT: 5px; PADDING-LEFT: 5px
+}
+.MIs {
+	MARGIN-LEFT: 5px; PADDING-LEFT: 5px
+}
+.MIn {
+	MARGIN-LEFT: 2px; PADDING-LEFT: 2px
+}
+.MIsn {
+	MARGIN-LEFT: 2px; PADDING-LEFT: 2px
+}
+.sidebar {
+	COLOR: #ffffff; FONT-SIZE: 9pt; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.infobar {
+	FONT-SIZE: 8pt; MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt
+}
+.infobarList {
+	FONT-SIZE: 8pt; MARGIN-LEFT: 1.5em; TEXT-INDENT: -1.5em
+}
+.InfobarHeader {
+	COLOR: #ab2600; FONT-SIZE: 9pt; FONT-WEIGHT: bold; MARGIN-BOTTOM: -10px
+}
+.HoverLink {
+	BORDER-BOTTOM: #ffcc99 1px; BORDER-LEFT: #ffcc99 1px; BORDER-RIGHT: #ffcc99 1px; BORDER-TOP: #ffcc99 1px; FONT-SIZE: 8pt; PADDING-BOTTOM: 2px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; PADDING-TOP: 2px; TEXT-DECORATION: none
+}
+A.HoverLink {
+	CURSOR: hand
+}
+A.HoverLink:hover {
+	
+}
+A.HoverLink:active {
+	BORDER-BOTTOM: #ffcc99 1px inset; BORDER-LEFT: #ffcc99 1px inset; BORDER-RIGHT: #ffcc99 1px inset; BORDER-TOP: #ffcc99 1px inset; CURSOR: hand
+}
+TT.equation {
+	FONT-FAMILY: 'Times New Roman', serif; FONT-SIZE: 10pt; FONT-STYLE: italic; WHITE-SPACE: pre
+}
+UL.download {
+	MARGIN-LEFT: 1em
+}
+UL.download LI {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 9pt; LIST-STYLE: url(/images/save.gif)
+}
+.MainHeader {
+	COLOR: black; FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif; FONT-SIZE: 155%; FONT-WEIGHT: bold
+}
+.formButton {
+	BACKGROUND-COLOR: #e08900; BORDER-BOTTOM-COLOR: #fbedbb; BORDER-LEFT-COLOR: #fbedbb; BORDER-RIGHT-COLOR: #fbedbb; BORDER-TOP-COLOR: #fbedbb; COLOR: white; FONT-SIZE: 90%; FONT-WEIGHT: 700
+}
+.SiteNewsHeading {
+	FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif; FONT-WEIGHT: bold
+}
+.DevNewsHeading {
+	FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif; FONT-WEIGHT: bold
+}
+.DevNewsHeading {
+	FONT-SIZE: 10.5pt
+}
+.links {
+	FONT-SIZE: 8pt
+}
+.messagetitle {
+	FONT-SIZE: 8pt
+}
+.SiteNews {
+	FONT-SIZE: 8pt
+}
+.SmallText {
+	FONT-SIZE: 8pt
+}
+.SiteNewsHeading {
+	FONT-SIZE: 8pt
+}
+.DevNewsContent {
+	FONT-SIZE: 9pt
+}
+.messagecontent {
+	FONT: 10pt "Courier New", Courier, mono; WHITE-SPACE: pre
+}
+.Default {
+	FONT-FAMILY: Verdana, Helvetica, Arial, sans-serif
+}
+.forum_link:link {
+	COLOR: #e08900; TEXT-DECORATION: none
+}
+.forum_link:visited {
+	COLOR: #e08900; TEXT-DECORATION: none
+}
+.forum_link:active {
+	COLOR: #e08900; TEXT-DECORATION: none
+}
+.forum_link:hover {
+	COLOR: #e08900; TEXT-DECORATION: underline
+}
+.cpp-comment {
+	COLOR: green; FONT-STYLE: italic
+}
+.cpp-keyword {
+	COLOR: blue
+}
+.cpp-preprocessor {
+	COLOR: navy
+}
+.cpp-string {
+	COLOR: purple
+}
+.cpp-literal {
+	COLOR: midnightblue
+}

@@ -1,0 +1,14 @@
+Debug
+Release
+Graphics
+*.aps
+*.clw
+*.ncb
+*.opt
+*.plg
+*.txt
+*.GID
+*.snp
+*.bce
+*.positions
+*.suo
