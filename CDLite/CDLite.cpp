@@ -44,6 +44,7 @@ BOOL CCDLiteApp::InitInstance()
 #else
     //Enable3dControlsStatic();    // Call this when linking to MFC statically
 #endif
+    InitCommonControls();
 
     CCDLiteDlg dlg;
     m_pMainWnd = &dlg;

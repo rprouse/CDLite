@@ -68,11 +68,11 @@ BOOL CSkinDlg::OnInitDialog()
     }
     m_skinCtrl.SetBmp( m_skin );
 
-    SetWindowPos( NULL, 0, 0, 288, 256, SWP_NOMOVE | SWP_NOZORDER );
-    m_skinCtrl.SetWindowPos( NULL, 10, 10, 0, 0, SWP_NOSIZE | SWP_NOZORDER );
-    m_skinList.SetWindowPos( NULL, 10, 31, 186, 190, SWP_NOZORDER );
-    m_ok.SetWindowPos( NULL, 204, 10, 70, 25, SWP_NOZORDER );
-    m_cancel.SetWindowPos( NULL, 204, 39, 70, 25, SWP_NOZORDER );
+    //SetWindowPos( NULL, 0, 0, 288, 256, SWP_NOMOVE | SWP_NOZORDER );
+    //m_skinCtrl.SetWindowPos( NULL, 10, 10, 0, 0, SWP_NOSIZE | SWP_NOZORDER );
+    //m_skinList.SetWindowPos( NULL, 10, 31, 186, 190, SWP_NOZORDER );
+    //m_ok.SetWindowPos( NULL, 204, 10, 70, 25, SWP_NOZORDER );
+    //m_cancel.SetWindowPos( NULL, 204, 39, 70, 25, SWP_NOZORDER );
 
     return TRUE;  // return TRUE unless you set the focus to a control
 }

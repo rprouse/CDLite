@@ -172,12 +172,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\CDLite.rc2" />
+    <None Include="res\rt_manif.bin" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\shared\shared.vcxproj">
       <Project>{3e736574-6367-4791-a78b-7aac2b87a556}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="manifest.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
