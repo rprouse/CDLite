@@ -21,18 +21,6 @@
     <ClCompile Include="BmpDlg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CFileLog.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CFuncLog.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CLog.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CWinLog.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FileInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -67,21 +55,6 @@
     <CustomBuild Include="BmpDlg.h">
       <Filter>Library Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="CFileLog.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="CFuncLog.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="CLog.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="CStoreLog.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="CWinLog.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="FileInfo.h">
       <Filter>Library Header Files</Filter>
     </CustomBuild>
@@ -89,9 +62,6 @@
       <Filter>Library Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="Library.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="logsync.h">
       <Filter>Library Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="Registry.h">
