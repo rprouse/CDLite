@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{006d8487-6414-4d07-b82e-eb941a18535d}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Local Header Files">
+      <UniqueIdentifier>{3a4f75b7-6dd2-4b83-ba94-5ca0470bce36}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Library Header Files">
+      <UniqueIdentifier>{555dd27b-b2d3-40ee-9bf8-b96916468675}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Bmp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BmpDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CFileLog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CFuncLog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CLog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CWinLog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileVersion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FolderDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GridCtrl\GridCell.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GridCtrl\GridCellBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GridCtrl\GridCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GridCtrl\GridDropTarget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HoverButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HyperLink.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GridCtrl\InPlaceEdit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Label.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Library.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Picture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgressWnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Registry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ShadeDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Subclass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="System.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GridCtrl\TitleTip.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TransButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TransDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TransStatic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TrayIcon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Version.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="xShadeButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AutoBuild.h">
+      <Filter>Local Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GridCtrl\GridDropTarget.h">
+      <Filter>Local Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GridCtrl\InPlaceEdit.h">
+      <Filter>Local Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GridCtrl\MemDC.h">
+      <Filter>Local Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Local Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GridCtrl\TitleTip.h">
+      <Filter>Local Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="sources.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Bmp.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="BmpDlg.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GridCtrl\CellRange.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="CFileLog.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="CFuncLog.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="CLog.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="CStoreLog.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="CWinLog.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="FileInfo.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="FileVersion.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="FolderDialog.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GridCtrl\GridCell.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GridCtrl\GridCellBase.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GridCtrl\GridCtrl.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="HoverButton.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hyperlink.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Label.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Library.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="logsync.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Picture.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ProgressWnd.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Registry.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ShadeDlg.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Subclass.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="System.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="TransButton.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="TransDialog.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="TransStatic.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="TrayIcon.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Version.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="xShadeButton.h">
+      <Filter>Library Header Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>
