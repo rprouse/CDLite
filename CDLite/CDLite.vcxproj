@@ -91,6 +91,10 @@
       <ProgramDatabaseFile>.\Release/CDLite.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
     </Link>
+    <PreBuildEvent>
+      <Command>xcopy /D /S /I /R /Y "$(SolutionDir)skins" "$(OutDir)skins"</Command>
+      <Message>Copying Skins</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
@@ -129,6 +133,10 @@
       <ProgramDatabaseFile>.\Debug/CDLite.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
     </Link>
+    <PreBuildEvent>
+      <Command>xcopy /D /S /I /R /Y "$(SolutionDir)skins" "$(OutDir)skins"</Command>
+      <Message>Copying Skins</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AboutDlg.cpp" />
