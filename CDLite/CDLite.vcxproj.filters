@@ -89,9 +89,5 @@
     <None Include="res\CDLite.rc2">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="html\index.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="ReadMe.txt" />
   </ItemGroup>
 </Project>

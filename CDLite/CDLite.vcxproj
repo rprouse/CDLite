@@ -160,10 +160,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\CDLite.rc2" />
-    <None Include="html\index.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\shared\shared.vcxproj">
