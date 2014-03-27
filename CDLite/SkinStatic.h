@@ -15,34 +15,34 @@ class CSkinStatic : public CStatic
     // Construction
 public:
     CSkinStatic();
-    
+
     // Attributes
 public:
-    
+
     // Operations
 public:
-    void SetBmp(const char * skinname);
-    
+    void SetBmp( const char * skinname );
+
     // Overrides
     // ClassWizard generated virtual function overrides
     //{{AFX_VIRTUAL(CSkinStatic)
     //}}AFX_VIRTUAL
-    
+
     // Implementation
 public:
     virtual ~CSkinStatic();
 
 private:
     CBmp m_skin;
-    
+
     // Generated message map functions
 protected:
     //{{AFX_MSG(CSkinStatic)
-    afx_msg HBRUSH CtlColor(CDC* pDC, UINT nCtlColor);
+    afx_msg HBRUSH CtlColor( CDC* pDC, UINT nCtlColor );
     afx_msg void OnPaint();
-	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
-	//}}AFX_MSG
-    
+    afx_msg int OnCreate( LPCREATESTRUCT lpCreateStruct );
+    //}}AFX_MSG
+
     DECLARE_MESSAGE_MAP()
 };
 

@@ -16,34 +16,34 @@ class CBmpNumberStatic : public CStatic
     // Construction
 public:
     CBmpNumberStatic();
-    
+
     // Attributes
 public:
-    
+
     // Operations
 public:
-    void SetWindowText(LPCTSTR lpszString);
-    bool SetBmp(const CBmp & bmp);
-    
+    void SetWindowText( LPCTSTR lpszString );
+    bool SetBmp( const CBmp & bmp );
+
     // Overrides
     // ClassWizard generated virtual function overrides
     //{{AFX_VIRTUAL(CBmpNumberStatic)
     //}}AFX_VIRTUAL
-    
+
     // Implementation
 public:
     virtual ~CBmpNumberStatic();
-    
+
 protected:
     CBmpStrip m_digits[12];
 
     // Generated message map functions
 protected:
     //{{AFX_MSG(CBmpNumberStatic)
-    afx_msg HBRUSH CtlColor(CDC* pDC, UINT nCtlColor);
+    afx_msg HBRUSH CtlColor( CDC* pDC, UINT nCtlColor );
     afx_msg void OnPaint();
     //}}AFX_MSG
-    
+
     DECLARE_MESSAGE_MAP()
 };
 

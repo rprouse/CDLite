@@ -17,38 +17,38 @@
 #endif
 
 class CFileVersion
-{ 
-// Construction
-public: 
+{
+    // Construction
+public:
     CFileVersion();
 
-// Operations	
-public: 
-    BOOL    Open(LPCTSTR lpszModuleName);
+    // Operations    
+public:
+    BOOL    Open( LPCTSTR lpszModuleName );
     void    Close();
 
-    CString QueryValue(LPCTSTR lpszValueName, DWORD dwLangCharset = 0);
-    CString GetFileDescription()  {return QueryValue(_T("FileDescription")); };
-    CString GetFileVersion()      {return QueryValue(_T("FileVersion"));     };
-    CString GetInternalName()     {return QueryValue(_T("InternalName"));    };
-    CString GetCompanyName()      {return QueryValue(_T("CompanyName"));     }; 
-    CString GetLegalCopyright()   {return QueryValue(_T("LegalCopyright"));  };
-    CString GetOriginalFilename() {return QueryValue(_T("OriginalFilename"));};
-    CString GetProductName()      {return QueryValue(_T("ProductName"));     };
-    CString GetProductVersion()   {return QueryValue(_T("ProductVersion"));  };
+    CString QueryValue( LPCTSTR lpszValueName, DWORD dwLangCharset = 0 );
+    CString GetFileDescription()  { return QueryValue( _T( "FileDescription" ) ); };
+    CString GetFileVersion()      { return QueryValue( _T( "FileVersion" ) ); };
+    CString GetInternalName()     { return QueryValue( _T( "InternalName" ) ); };
+    CString GetCompanyName()      { return QueryValue( _T( "CompanyName" ) ); };
+    CString GetLegalCopyright()   { return QueryValue( _T( "LegalCopyright" ) ); };
+    CString GetOriginalFilename() { return QueryValue( _T( "OriginalFilename" ) ); };
+    CString GetProductName()      { return QueryValue( _T( "ProductName" ) ); };
+    CString GetProductVersion()   { return QueryValue( _T( "ProductVersion" ) ); };
 
-    BOOL    GetFixedInfo(VS_FIXEDFILEINFO& vsffi);
+    BOOL    GetFixedInfo( VS_FIXEDFILEINFO& vsffi );
     CString GetFixedFileVersion();
     CString GetFixedProductVersion();
 
-// Attributes
+    // Attributes
 protected:
-    LPBYTE  m_lpVersionData; 
-    DWORD   m_dwLangCharset; 
+    LPBYTE  m_lpVersionData;
+    DWORD   m_dwLangCharset;
 
-// Implementation
+    // Implementation
 public:
-    ~CFileVersion(); 
-}; 
+    ~CFileVersion();
+};
 
 #endif  

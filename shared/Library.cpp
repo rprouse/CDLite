@@ -11,4 +11,4 @@
 //////////////////////////////////////////////////////////////////////
 
 // Constructs it with the AutoBuild.h version numbers
-CLibrary::CLibrary() : CVersion(FILEVER) { }
+CLibrary::CLibrary() : CVersion( FILEVER ) { }

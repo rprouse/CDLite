@@ -44,35 +44,35 @@ class CGridCtrl;
 class CGridCell : public CGridCellBase
 {
     friend class CGridCtrl;
-    DECLARE_DYNCREATE(CGridCell)
+    DECLARE_DYNCREATE( CGridCell )
 
-// Construction/Destruction
+    // Construction/Destruction
 public:
     CGridCell();
     virtual ~CGridCell();
 
-// Attributes
+    // Attributes
 public:
-    void operator=(const CGridCell& cell);
+    void operator=( const CGridCell& cell );
 
-    virtual void  SetText(LPCTSTR szText)        { m_strText = szText;  }                       
-    virtual void  SetImage(int nImage)           { m_nImage = nImage;   }                        
-    virtual void  SetData(LPARAM lParam)         { m_lParam = lParam;   }      
-    virtual void  SetGrid(CGridCtrl* pGrid)      { m_pGrid = pGrid;     }                          
+    virtual void  SetText( LPCTSTR szText )        { m_strText = szText; }
+    virtual void  SetImage( int nImage )           { m_nImage = nImage; }
+    virtual void  SetData( LPARAM lParam )         { m_lParam = lParam; }
+    virtual void  SetGrid( CGridCtrl* pGrid )      { m_pGrid = pGrid; }
     // virtual void SetState(const DWORD nState);  -  use base class version   
-    virtual void  SetFormat(DWORD nFormat)       { m_nFormat = nFormat; }                      
-    virtual void  SetTextClr(COLORREF clr)       { m_crFgClr = clr;     }                          
-    virtual void  SetBackClr(COLORREF clr)       { m_crBkClr = clr;     }                          
-    virtual void  SetFont(const LOGFONT* plf);
-    virtual void  SetMargin(UINT nMargin)        { m_nMargin = nMargin; }
-    virtual CWnd* GetEditWnd() const             { return m_pEditWnd;   }
-    virtual void  SetCoords( int /* nRow */, int /* nCol */) {}  // don't need to know the row and
-                                                                // column for base implementation
+    virtual void  SetFormat( DWORD nFormat )       { m_nFormat = nFormat; }
+    virtual void  SetTextClr( COLORREF clr )       { m_crFgClr = clr; }
+    virtual void  SetBackClr( COLORREF clr )       { m_crBkClr = clr; }
+    virtual void  SetFont( const LOGFONT* plf );
+    virtual void  SetMargin( UINT nMargin )        { m_nMargin = nMargin; }
+    virtual CWnd* GetEditWnd() const             { return m_pEditWnd; }
+    virtual void  SetCoords( int /* nRow */, int /* nCol */ ) {}  // don't need to know the row and
+    // column for base implementation
 
-    virtual LPCTSTR     GetText() const             { return (m_strText.IsEmpty())? _T("") : m_strText; }
-    virtual int         GetImage() const            { return m_nImage;  }
-    virtual LPARAM      GetData() const             { return m_lParam;  }
-    virtual CGridCtrl*  GetGrid() const             { return m_pGrid;   }
+    virtual LPCTSTR     GetText() const             { return ( m_strText.IsEmpty() ) ? _T( "" ) : m_strText; }
+    virtual int         GetImage() const            { return m_nImage; }
+    virtual LPARAM      GetData() const             { return m_lParam; }
+    virtual CGridCtrl*  GetGrid() const             { return m_pGrid; }
     // virtual DWORD    GetState() const - use base class
     virtual DWORD       GetFormat() const;
     virtual COLORREF    GetTextClr() const          { return m_crFgClr; } // TODO: change to use default cell
@@ -82,12 +82,12 @@ public:
     virtual UINT        GetMargin() const;
 
     virtual BOOL        IsEditing() const           { return m_bEditing; }
-    virtual BOOL        IsDefaultFont() const       { return (m_plfFont == NULL); }
+    virtual BOOL        IsDefaultFont() const       { return ( m_plfFont == NULL ); }
     virtual void        Reset();
 
-// editing cells
+    // editing cells
 public:
-    virtual BOOL Edit(int nRow, int nCol, CRect rect, CPoint point, UINT nID, UINT nChar);
+    virtual BOOL Edit( int nRow, int nCol, CRect rect, CPoint point, UINT nID, UINT nChar );
     virtual void EndEdit();
 protected:
     virtual void OnEndEdit();
@@ -112,28 +112,28 @@ protected:
 // don't use it in bulk 
 class CGridDefaultCell : public CGridCell
 {
-    DECLARE_DYNCREATE(CGridDefaultCell)
+    DECLARE_DYNCREATE( CGridDefaultCell )
 
-// Construction/Destruction
+    // Construction/Destruction
 public:
     CGridDefaultCell();
     virtual ~CGridDefaultCell();
 
 public:
-    virtual DWORD GetStyle() const                      { return m_dwStyle;      }
-    virtual void  SetStyle(DWORD dwStyle)               { m_dwStyle = dwStyle;   }
-    virtual int   GetWidth() const                      { return m_Size.cx;      }
-    virtual int   GetHeight() const                     { return m_Size.cy;      }
-    virtual void  SetWidth(int nWidth)                  { m_Size.cx = nWidth;    }
-    virtual void  SetHeight(int nHeight)                { m_Size.cy = nHeight;   }
+    virtual DWORD GetStyle() const                      { return m_dwStyle; }
+    virtual void  SetStyle( DWORD dwStyle )               { m_dwStyle = dwStyle; }
+    virtual int   GetWidth() const                      { return m_Size.cx; }
+    virtual int   GetHeight() const                     { return m_Size.cy; }
+    virtual void  SetWidth( int nWidth )                  { m_Size.cx = nWidth; }
+    virtual void  SetHeight( int nHeight )                { m_Size.cy = nHeight; }
 
     // Disable these properties
-    virtual void     SetData(LPARAM /*lParam*/)             { ASSERT(FALSE);         }      
-    virtual void     SetState(DWORD /*nState*/)             { ASSERT(FALSE);         }
-    virtual DWORD    GetState() const                       { return CGridCell::GetState()|GVIS_READONLY; }
-    virtual void     SetCoords( int /*row*/, int /*col*/)   { ASSERT(FALSE);         }
-    virtual void     SetFont(const LOGFONT* /*plf*/);
-    virtual LOGFONT* GetFont() const;   
+    virtual void     SetData( LPARAM /*lParam*/ )             { ASSERT( FALSE ); }
+    virtual void     SetState( DWORD /*nState*/ )             { ASSERT( FALSE ); }
+    virtual DWORD    GetState() const                       { return CGridCell::GetState() | GVIS_READONLY; }
+    virtual void     SetCoords( int /*row*/, int /*col*/ )   { ASSERT( FALSE ); }
+    virtual void     SetFont( const LOGFONT* /*plf*/ );
+    virtual LOGFONT* GetFont() const;
     virtual CFont*   GetFontObject() const;
 
 protected:

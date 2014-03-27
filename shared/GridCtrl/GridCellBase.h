@@ -52,11 +52,11 @@ class CGridCtrl;
 #define GVIF_FONT               (GVIF_STATE<<4)
 #define GVIF_MARGIN             (GVIF_STATE<<5)
 #define GVIF_ALL                (GVIF_TEXT|GVIF_IMAGE|GVIF_PARAM|GVIF_STATE|GVIF_BKCLR|GVIF_FGCLR| \
-                                 GVIF_FORMAT|GVIF_FONT|GVIF_MARGIN)
+    GVIF_FORMAT|GVIF_FONT|GVIF_MARGIN)
 
 // Used for Get/SetItem calls.
 typedef struct _GV_ITEM {
-    int      row,col;     // Row and Column of item
+    int      row, col;     // Row and Column of item
     UINT     mask;        // Mask for use in getting/setting cell data
     UINT     nState;      // cell state (focus/hilighted etc)
     DWORD    nFormat;     // Format of cell
@@ -77,93 +77,95 @@ typedef struct _GV_ITEM {
 class CGridCellBase : public CObject
 {
     friend class CGridCtrl;
-    DECLARE_DYNCREATE(CGridCellBase)
+    DECLARE_DYNCREATE( CGridCellBase )
 
-// Construction/Destruction
+    // Construction/Destruction
 public:
     CGridCellBase();
     virtual ~CGridCellBase();
 
-// Attributes
+    // Attributes
 public:
     // can't do pure virtual because of DECLARE_DYNCREATE requirement
     //  use ASSERT() to require that programmer overrides all that should
     //  be pure virtuals
 
-    virtual void SetText(LPCTSTR /* szText */)              { ASSERT( FALSE);    }
-    virtual void SetImage(int /* nImage */)                 { ASSERT( FALSE);    }
-    virtual void SetData(LPARAM /* lParam */)               { ASSERT( FALSE);    }
-    virtual void SetState(DWORD nState)                     { m_nState = nState; }
-    virtual void SetFormat(DWORD /* nFormat */)             { ASSERT( FALSE);    }
-    virtual void SetTextClr(COLORREF /* clr */)             { ASSERT( FALSE);    }
-    virtual void SetBackClr(COLORREF /* clr */)             { ASSERT( FALSE);    }
-    virtual void SetFont(const LOGFONT* /* plf */)          { ASSERT( FALSE);    }
-    virtual void SetMargin( UINT /* nMargin */)             { ASSERT( FALSE);    }
-    virtual void SetGrid(CGridCtrl* /* pGrid */)            { ASSERT( FALSE);    }
-    virtual void SetCoords( int /* nRow */, int /* nCol */) { ASSERT( FALSE);    }
+    virtual void SetText( LPCTSTR /* szText */ )              { ASSERT( FALSE ); }
+    virtual void SetImage( int /* nImage */ )                 { ASSERT( FALSE ); }
+    virtual void SetData( LPARAM /* lParam */ )               { ASSERT( FALSE ); }
+    virtual void SetState( DWORD nState )                     { m_nState = nState; }
+    virtual void SetFormat( DWORD /* nFormat */ )             { ASSERT( FALSE ); }
+    virtual void SetTextClr( COLORREF /* clr */ )             { ASSERT( FALSE ); }
+    virtual void SetBackClr( COLORREF /* clr */ )             { ASSERT( FALSE ); }
+    virtual void SetFont( const LOGFONT* /* plf */ )          { ASSERT( FALSE ); }
+    virtual void SetMargin( UINT /* nMargin */ )             { ASSERT( FALSE ); }
+    virtual void SetGrid( CGridCtrl* /* pGrid */ )            { ASSERT( FALSE ); }
+    virtual void SetCoords( int /* nRow */, int /* nCol */ ) { ASSERT( FALSE ); }
 
-    virtual LPCTSTR  GetText() const                        { ASSERT( FALSE); return NULL;  }
-    virtual LPCTSTR  GetTipText() const                     { return GetText();             } // may override TitleTip return
-    virtual int      GetImage() const                       { ASSERT( FALSE); return -1;    }
-    virtual LPARAM   GetData() const                        { ASSERT( FALSE); return 0;     }
-    virtual DWORD    GetState() const                       { return m_nState;              }
-    virtual DWORD    GetFormat() const                      { ASSERT( FALSE); return 0;     }
-    virtual COLORREF GetTextClr() const                     { ASSERT( FALSE); return 0;     }
-    virtual COLORREF GetBackClr() const                     { ASSERT( FALSE); return 0;     }
-    virtual LOGFONT* GetFont() const                        { ASSERT( FALSE); return NULL;  }
-    virtual CFont*   GetFontObject() const                  { ASSERT( FALSE); return NULL;  }
-    virtual CGridCtrl* GetGrid() const                      { ASSERT( FALSE); return NULL;  }
-    virtual CWnd*    GetEditWnd() const                     { ASSERT( FALSE); return NULL;  }
-    virtual UINT     GetMargin() const                      { ASSERT( FALSE); return 0;     }
+    virtual LPCTSTR  GetText() const                        { ASSERT( FALSE ); return NULL; }
+    virtual LPCTSTR  GetTipText() const                     { return GetText(); } // may override TitleTip return
+    virtual int      GetImage() const                       { ASSERT( FALSE ); return -1; }
+    virtual LPARAM   GetData() const                        { ASSERT( FALSE ); return 0; }
+    virtual DWORD    GetState() const                       { return m_nState; }
+    virtual DWORD    GetFormat() const                      { ASSERT( FALSE ); return 0; }
+    virtual COLORREF GetTextClr() const                     { ASSERT( FALSE ); return 0; }
+    virtual COLORREF GetBackClr() const                     { ASSERT( FALSE ); return 0; }
+    virtual LOGFONT* GetFont() const                        { ASSERT( FALSE ); return NULL; }
+    virtual CFont*   GetFontObject() const                  { ASSERT( FALSE ); return NULL; }
+    virtual CGridCtrl* GetGrid() const                      { ASSERT( FALSE ); return NULL; }
+    virtual CWnd*    GetEditWnd() const                     { ASSERT( FALSE ); return NULL; }
+    virtual UINT     GetMargin() const                      { ASSERT( FALSE ); return 0; }
 
     virtual CGridCellBase* GetDefaultCell() const;
 
-    virtual BOOL IsDefaultFont() const                      { ASSERT( FALSE); return FALSE; }
-    virtual BOOL IsEditing() const                          { ASSERT( FALSE); return FALSE; }
-    virtual BOOL IsFocused()  const                         { return (m_nState & GVIS_FOCUSED);  }
-    virtual BOOL IsFixed()    const                         { return (m_nState & GVIS_FIXED);    }
-    virtual BOOL IsFixedCol() const                         { return (m_nState & GVIS_FIXEDCOL); }
-    virtual BOOL IsFixedRow() const                         { return (m_nState & GVIS_FIXEDROW); }
-    virtual BOOL IsSelected() const                         { return (m_nState & GVIS_SELECTED); }
-    virtual BOOL IsReadOnly() const                         { return (m_nState & GVIS_READONLY); }
-    virtual BOOL IsModified() const                         { return (m_nState & GVIS_MODIFIED); }
-    virtual BOOL IsDropHighlighted() const                  { return (m_nState & GVIS_DROPHILITED); }
+    virtual BOOL IsDefaultFont() const                      { ASSERT( FALSE ); return FALSE; }
+    virtual BOOL IsEditing() const                          { ASSERT( FALSE ); return FALSE; }
+    virtual BOOL IsFocused()  const                         { return ( m_nState & GVIS_FOCUSED ); }
+    virtual BOOL IsFixed()    const                         { return ( m_nState & GVIS_FIXED ); }
+    virtual BOOL IsFixedCol() const                         { return ( m_nState & GVIS_FIXEDCOL ); }
+    virtual BOOL IsFixedRow() const                         { return ( m_nState & GVIS_FIXEDROW ); }
+    virtual BOOL IsSelected() const                         { return ( m_nState & GVIS_SELECTED ); }
+    virtual BOOL IsReadOnly() const                         { return ( m_nState & GVIS_READONLY ); }
+    virtual BOOL IsModified() const                         { return ( m_nState & GVIS_MODIFIED ); }
+    virtual BOOL IsDropHighlighted() const                  { return ( m_nState & GVIS_DROPHILITED ); }
 
-// Operators
+    // Operators
 public:
-    virtual void operator=(const CGridCellBase& cell);
+    virtual void operator=( const CGridCellBase& cell );
 
-// Operations
+    // Operations
 public:
     virtual void Reset();
 
-    virtual BOOL Draw(CDC* pDC, int nRow, int nCol, CRect rect, BOOL bEraseBkgnd = TRUE);
-    virtual BOOL GetTextRect( LPRECT pRect);    // i/o:  i=dims of cell rect; o=dims of text rect
-    virtual BOOL GetTipTextRect( LPRECT pRect) { return GetTextRect( pRect); }  // may override for btns, etc.
-    virtual CSize GetTextExtent(LPCTSTR str, CDC* pDC = NULL);
-    virtual CSize GetCellExtent(CDC* pDC);
+    virtual BOOL Draw( CDC* pDC, int nRow, int nCol, CRect rect, BOOL bEraseBkgnd = TRUE );
+    virtual BOOL GetTextRect( LPRECT pRect );    // i/o:  i=dims of cell rect; o=dims of text rect
+    virtual BOOL GetTipTextRect( LPRECT pRect ) { return GetTextRect( pRect ); }  // may override for btns, etc.
+    virtual CSize GetTextExtent( LPCTSTR str, CDC* pDC = NULL );
+    virtual CSize GetCellExtent( CDC* pDC );
 
     // Editing
-    virtual BOOL Edit( int /* nRow */, int /* nCol */, CRect /* rect */, CPoint /* point */, 
-                       UINT /* nID */, UINT /* nChar */) { ASSERT( FALSE); return FALSE;}
-	virtual BOOL ValidateEdit(LPCTSTR str);
+    virtual BOOL Edit( int /* nRow */, int /* nCol */, CRect /* rect */, CPoint /* point */,
+        UINT /* nID */, UINT /* nChar */ ) {
+        ASSERT( FALSE ); return FALSE;
+    }
+    virtual BOOL ValidateEdit( LPCTSTR str );
     virtual void EndEdit() {}
 
     // EFW - Added to print cells properly
-    virtual BOOL PrintCell(CDC* pDC, int nRow, int nCol, CRect rect);
+    virtual BOOL PrintCell( CDC* pDC, int nRow, int nCol, CRect rect );
 
     // add additional protected grid members required of cells
-    LRESULT SendMessageToParent(int nRow, int nCol, int nMessage);
+    LRESULT SendMessageToParent( int nRow, int nCol, int nMessage );
 
 protected:
     virtual void OnEndEdit();
     virtual void OnMouseEnter();
     virtual void OnMouseOver();
     virtual void OnMouseLeave();
-    virtual void OnClick( CPoint PointCellRelative);
-    virtual void OnClickDown( CPoint PointCellRelative);
-    virtual void OnRClick( CPoint PointCellRelative);
-    virtual void OnDblClick( CPoint PointCellRelative);
+    virtual void OnClick( CPoint PointCellRelative );
+    virtual void OnClickDown( CPoint PointCellRelative );
+    virtual void OnRClick( CPoint PointCellRelative );
+    virtual void OnDblClick( CPoint PointCellRelative );
     virtual BOOL OnSetCursor();
 
 protected:

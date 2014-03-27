@@ -6,9 +6,9 @@
   file base:  cfunclog
   file ext:   h
   author:     Alex Kucherenko
-  
-  purpose:  
-\********************************************************************/
+
+  purpose:
+  \********************************************************************/
 
 #ifndef _LOG_SYSTEM_FUNCTION_LOG_H_
 #define _LOG_SYSTEM_FUNCTION_LOG_H_
@@ -35,11 +35,11 @@
 
 class CFuncLog
 {
-  public:
+public:
     CFuncLog( CLog &pLog, const std::string &FunctionName );
     CFuncLog( CLog *pLog, const std::string &FunctionName );
     CFuncLog( CLog *pLog, char *szFunctionName );
-    ~CFuncLog(  );
+    ~CFuncLog();
 
     int LogString( long Level, const std::string &Message );
     std::string FormatString( const std::string Format, ... );
@@ -49,16 +49,16 @@ class CFuncLog
     CFuncLog &operator<< ( double dValue );
     CFuncLog &operator<< ( const std::string &strValue );
     CFuncLog &operator<< ( char *cszValue );
-    
+
     char *endl( void )
     {
-      return "\n";
+        return "\n";
     };
-    
-  private:
+
+private:
     std::string   m_strFuncName;
     CLog          *m_pLog;
-    char          m_tmpBuf[ MAX_STRING_LENGTH ];
+    char          m_tmpBuf[MAX_STRING_LENGTH];
 };
 
 #pragma warning( pop )

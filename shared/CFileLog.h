@@ -1,14 +1,14 @@
 /********************************************************************\
-	created:		2001/03/22
-	created:		22:3:2001   20:20
-	filename: 	c:\my projects\dualmagic\controlappl\include\cfilelog.h
-	file path:	c:\my projects\dualmagic\controlappl\include
-	file base:	cfilelog
-	file ext:		h
-	author:			Alex Kucherenko
-	
-	purpose:	
-\********************************************************************/
+    created:        2001/03/22
+    created:        22:3:2001   20:20
+    filename:     c:\my projects\dualmagic\controlappl\include\cfilelog.h
+    file path:    c:\my projects\dualmagic\controlappl\include
+    file base:    cfilelog
+    file ext:        h
+    author:            Alex Kucherenko
+
+    purpose:
+    \********************************************************************/
 
 #ifndef _LOG_SYSTEM_FILE_LOG_H_
 #define _LOG_SYSTEM_FILE_LOG_H_
@@ -37,15 +37,15 @@
 
 class CFileLog : public IStoreLog
 {
-  public:
+public:
     CFileLog( const std::string &FileName, long lSize = MAX_STRING_LENGTH ) throw ( std::string );
-    virtual ~CFileLog(  );
+    virtual ~CFileLog();
 
     virtual int FlushData();
     virtual int WriteString( const std::string &Message );
     virtual int SetBufferLimit( long lSize );
 
-  private:
+private:
     std::string    m_strFileName;
     HANDLE         m_file;
     long           m_lBufSize;

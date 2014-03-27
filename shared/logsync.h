@@ -7,8 +7,8 @@
   file ext:  h
   author:    Alex Kucherenko
 
-  purpose:   
-*********************************************************************/
+  purpose:
+  *********************************************************************/
 
 #ifndef _LOGGER_SYNC_SIMPLE_OBJECTS_H_
 #define _LOGGER_SYNC_SIMPLE_OBJECTS_H_
@@ -31,41 +31,41 @@
 namespace LOGGER
 {
 
-  class CAutoCritic : public CRITICAL_SECTION
-  {
-  public:
-    CAutoCritic( void )
+    class CAutoCritic : public CRITICAL_SECTION
     {
-      ::InitializeCriticalSection( this );
-    }
-    
-    ~CAutoCritic( void )
-    {
-      ::DeleteCriticalSection( this );
-    }
-  };
-  
-  class CLogSimpleLock
-  {
     public:
-      CLogSimpleLock( CAutoCritic *pSection ) : m_pSection( pSection )
-      {
-        if( m_pSection != NULL )
-          EnterCriticalSection( m_pSection );
-      }
-      
-      ~CLogSimpleLock(  )
-      {
-        if( m_pSection != NULL )
-          LeaveCriticalSection( m_pSection );
-        
-        m_pSection = NULL;
-      }
-      
+        CAutoCritic( void )
+        {
+            ::InitializeCriticalSection( this );
+        }
+
+        ~CAutoCritic( void )
+        {
+            ::DeleteCriticalSection( this );
+        }
+    };
+
+    class CLogSimpleLock
+    {
+    public:
+        CLogSimpleLock( CAutoCritic *pSection ) : m_pSection( pSection )
+        {
+            if ( m_pSection != NULL )
+                EnterCriticalSection( m_pSection );
+        }
+
+        ~CLogSimpleLock()
+        {
+            if ( m_pSection != NULL )
+                LeaveCriticalSection( m_pSection );
+
+            m_pSection = NULL;
+        }
+
     private:
-      CAutoCritic *m_pSection;
-  };
-  
+        CAutoCritic *m_pSection;
+    };
+
 };
 
 #pragma warning( pop )

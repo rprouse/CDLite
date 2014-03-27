@@ -17,7 +17,7 @@ CTransStatic::CTransStatic() { }
 
 CTransStatic::~CTransStatic() { }
 
-BEGIN_MESSAGE_MAP(CTransStatic, CStatic)
+BEGIN_MESSAGE_MAP( CTransStatic, CStatic )
     //{{AFX_MSG_MAP(CTransStatic)
     ON_WM_CTLCOLOR_REFLECT()
     //}}AFX_MSG_MAP
@@ -25,18 +25,18 @@ END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // CTransStatic message handlers
-HBRUSH CTransStatic::CtlColor(CDC* pDC, UINT nCtlColor)  
+HBRUSH CTransStatic::CtlColor( CDC* pDC, UINT nCtlColor )
 {
-    pDC->SetBkMode(TRANSPARENT);        
-    return (HBRUSH) GetStockObject(NULL_BRUSH);
+    pDC->SetBkMode( TRANSPARENT );
+    return (HBRUSH)GetStockObject( NULL_BRUSH );
 }
 
 void CTransStatic::SetWindowText( LPCTSTR lpszString )
 {
-    CStatic::SetWindowText(lpszString);
-    
+    CStatic::SetWindowText( lpszString );
+
     CRect rect;
-    GetWindowRect(&rect);
-    GetParent()->ScreenToClient(&rect);
-    GetParent()->InvalidateRect(&rect, FALSE);  
+    GetWindowRect( &rect );
+    GetParent()->ScreenToClient( &rect );
+    GetParent()->InvalidateRect( &rect, FALSE );
 }

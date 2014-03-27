@@ -17,7 +17,7 @@ CTransButton::CTransButton(){}
 
 CTransButton::~CTransButton(){}
 
-BEGIN_MESSAGE_MAP(CTransButton, CButton)
+BEGIN_MESSAGE_MAP( CTransButton, CButton )
     //{{AFX_MSG_MAP(CTransButton)
     ON_WM_CTLCOLOR_REFLECT()
     //}}AFX_MSG_MAP
@@ -25,22 +25,22 @@ END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // CTransButton message handlers
-HBRUSH CTransButton::CtlColor(CDC* pDC, UINT nCtlColor) 
+HBRUSH CTransButton::CtlColor( CDC* pDC, UINT nCtlColor )
 {
-    pDC->SetBkMode(TRANSPARENT);        
-    return (HBRUSH) GetStockObject(NULL_BRUSH);
+    pDC->SetBkMode( TRANSPARENT );
+    return (HBRUSH)GetStockObject( NULL_BRUSH );
 }
 
 void CTransButton::SetWindowText( LPCTSTR lpszString )
 {
-    CWnd::SetWindowText(lpszString);
-    
+    CWnd::SetWindowText( lpszString );
+
     CRect rect, pRect;
-    GetParent()->GetWindowRect(&pRect);
-    GetWindowRect(&rect);
+    GetParent()->GetWindowRect( &pRect );
+    GetWindowRect( &rect );
     rect.bottom -= pRect.top;
-    rect.top    -= pRect.top;
-    rect.left   -= pRect.left;
-    rect.right  -= pRect.left;
-    GetParent()->InvalidateRect(&rect, FALSE);  
+    rect.top -= pRect.top;
+    rect.left -= pRect.left;
+    rect.right -= pRect.left;
+    GetParent()->InvalidateRect( &rect, FALSE );
 }

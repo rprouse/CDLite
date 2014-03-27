@@ -26,19 +26,19 @@ class CShadeDlg : public CDialog
 {
 public:
     CShadeDlg();
-    CShadeDlg(LPCTSTR lpszTemplateName, CWnd* pParentWnd = NULL );
-    CShadeDlg(UINT nIDTemplate, CWnd* pParentWnd = NULL );
+    CShadeDlg( LPCTSTR lpszTemplateName, CWnd* pParentWnd = NULL );
+    CShadeDlg( UINT nIDTemplate, CWnd* pParentWnd = NULL );
     virtual ~CShadeDlg();
 
     // Implementation
-    virtual void SetShade(UINT shadeID=0,BYTE granularity=8,BYTE highlight=10,BYTE coloring=0,COLORREF color=0);
-    
-    DECLARE_DYNAMIC(CShadeDlg)
+    virtual void SetShade( UINT shadeID = 0, BYTE granularity = 8, BYTE highlight = 10, BYTE coloring = 0, COLORREF color = 0 );
+
+    DECLARE_DYNAMIC( CShadeDlg )
 
 protected:
     //{{AFX_MSG(CShadeDlg)
-    afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
-    afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+    afx_msg void OnLButtonDown( UINT nFlags, CPoint point );
+    afx_msg BOOL OnEraseBkgnd( CDC* pDC );
     afx_msg void OnPaint();
     //}}AFX_MSG
     DECLARE_MESSAGE_MAP()

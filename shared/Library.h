@@ -27,7 +27,7 @@
 #include <Version.h>
 #endif
 
-class CLibrary : public CVersion  
+class CLibrary : public CVersion
 {
 public:
     CLibrary();

@@ -20,50 +20,50 @@
  **/
 class CRegistry
 {
-private:  
+private:
     HKEY m_hkey;
-    
+
 public:
     CRegistry();
-    CRegistry(HKEY rootkey, LPCTSTR keyname);
+    CRegistry( HKEY rootkey, LPCTSTR keyname );
     ~CRegistry();
-    
-    bool CreateKey(HKEY rootkey,LPCSTR key);
-    bool DeleteKey(HKEY rootkey,LPCSTR keyname);
-    bool OpenKey(HKEY rootkey,LPCSTR key);
+
+    bool CreateKey( HKEY rootkey, LPCSTR key );
+    bool DeleteKey( HKEY rootkey, LPCSTR keyname );
+    bool OpenKey( HKEY rootkey, LPCSTR key );
     bool CloseKey();
 
     /// See if a key exists
-    static bool Exists(HKEY rootkey, LPCSTR keyname);
+    static bool Exists( HKEY rootkey, LPCSTR keyname );
 
     /// See if the subkey of an already open subkey exists
-    bool Exists(LPCSTR keyname);
+    bool Exists( LPCSTR keyname );
 
-    bool SetDWORD(LPCSTR name,   DWORD   value);
-    bool SetDWORD64(LPCSTR name, DWORD64 value);
-    bool SetString(LPCSTR name,  LPSTR   value);
-    bool SetString(LPCSTR name,  const CString & value);
-    bool SetBinary(LPCSTR name,  BYTE *  value, DWORD len);
+    bool SetDWORD( LPCSTR name, DWORD   value );
+    bool SetDWORD64( LPCSTR name, DWORD64 value );
+    bool SetString( LPCSTR name, LPSTR   value );
+    bool SetString( LPCSTR name, const CString & value );
+    bool SetBinary( LPCSTR name, BYTE *  value, DWORD len );
 
-    bool SetValue(LPCSTR name, DWORD64 value);
-    bool SetValue(LPCSTR name, DWORD   value);
-    bool SetValue(LPCSTR name, LPSTR   value);
-    bool SetValue(LPCSTR name, int     value);
-    bool SetValue(LPCSTR name, const CString &value);
+    bool SetValue( LPCSTR name, DWORD64 value );
+    bool SetValue( LPCSTR name, DWORD   value );
+    bool SetValue( LPCSTR name, LPSTR   value );
+    bool SetValue( LPCSTR name, int     value );
+    bool SetValue( LPCSTR name, const CString &value );
 
-    DWORD   GetDWORD(  LPCSTR name, DWORD   defVal = 0);
-    DWORD64 GetDWORD64(LPCSTR name, DWORD64 defVal = 0);
-    CString GetString( LPCSTR name);
-    DWORD   GetString( LPCSTR name, LPSTR string, DWORD len);
-    DWORD   GetBinary( LPCSTR name, BYTE * value, DWORD len);
+    DWORD   GetDWORD( LPCSTR name, DWORD   defVal = 0 );
+    DWORD64 GetDWORD64( LPCSTR name, DWORD64 defVal = 0 );
+    CString GetString( LPCSTR name );
+    DWORD   GetString( LPCSTR name, LPSTR string, DWORD len );
+    DWORD   GetBinary( LPCSTR name, BYTE * value, DWORD len );
 
-    bool GetValue(LPCSTR name, CString &value);
-    bool GetValue(LPCSTR name, LPSTR    string,  int     len);
-    bool GetValue(LPCSTR name, DWORD   *dword,   DWORD   defVal = 0);
-    bool GetValue(LPCSTR name, DWORD64 *dword64, DWORD64 defVal = 0);
-    bool GetValue(LPCSTR name, int     *dword,   int     defVal = 0);
-    
-    bool RemoveValue(LPCSTR name);
+    bool GetValue( LPCSTR name, CString &value );
+    bool GetValue( LPCSTR name, LPSTR    string, int     len );
+    bool GetValue( LPCSTR name, DWORD   *dword, DWORD   defVal = 0 );
+    bool GetValue( LPCSTR name, DWORD64 *dword64, DWORD64 defVal = 0 );
+    bool GetValue( LPCSTR name, int     *dword, int     defVal = 0 );
+
+    bool RemoveValue( LPCSTR name );
 };
 
 #endif

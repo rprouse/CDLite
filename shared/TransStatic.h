@@ -19,20 +19,20 @@
 class CTransStatic : public CStatic
 {
 public:
-    CTransStatic(); 
+    CTransStatic();
     virtual ~CTransStatic();
 
     // ClassWizard generated virtual function overrides
     //{{AFX_VIRTUAL(CTransStatic)
-    public:
-    virtual void SetWindowText(LPCTSTR lpszString);
+public:
+    virtual void SetWindowText( LPCTSTR lpszString );
     //}}AFX_VIRTUAL
 
 protected:
     //{{AFX_MSG(CTransStatic)
-    afx_msg HBRUSH CtlColor(CDC* pDC, UINT nCtlColor);
+    afx_msg HBRUSH CtlColor( CDC* pDC, UINT nCtlColor );
     //}}AFX_MSG
-    
+
     DECLARE_MESSAGE_MAP()
 };
 

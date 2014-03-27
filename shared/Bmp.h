@@ -16,11 +16,11 @@
 #include <Library.h>
 #endif
 
-class CBmp  
+class CBmp
 {
 protected:
-    HBITMAP m_hBitmap;	// Handle to the bitmap
-    int *   m_pCount;	// Reference count, how many objects are pointing to this handle
+    HBITMAP m_hBitmap;    // Handle to the bitmap
+    int *   m_pCount;    // Reference count, how many objects are pointing to this handle
 
 public:
     /**
@@ -33,7 +33,7 @@ public:
      * @param name the name of the file or resource
      * @param file true to load from a file, false to load from a resource
      **/
-    CBmp(const char * name, bool file = false);
+    CBmp( const char * name, bool file = false );
 
     /**
      * Construct from a bitmap handle
@@ -41,12 +41,12 @@ public:
      *          when the class is destroyed and the reference count goes to 0
      * @param the bitmap handle to attach to
      **/
-    CBmp(HBITMAP hBmp);
+    CBmp( HBITMAP hBmp );
 
     /**
      * Copy constructor
      **/
-    CBmp(const CBmp & rhs);
+    CBmp( const CBmp & rhs );
 
     /**
      * Destructor
@@ -56,14 +56,14 @@ public:
     /**
      * Operator = CBmp
      **/
-    CBmp & operator=(const CBmp & rhs);
+    CBmp & operator=( const CBmp & rhs );
 
     /**
      * Operator = HBITMAP
      * @warning This class will take responsibility for the bitmap and delete it
      *          when the class is destroyed and the reference count goes to 0
      **/
-    CBmp & operator=(const HBITMAP & rhs);
+    CBmp & operator=( const HBITMAP & rhs );
 
     /**
      * Loads a bitmap from a file or a resource
@@ -71,7 +71,7 @@ public:
      * @param file true to load from a file, false to load from a resource
      * @return the handle to the loaded bitmap, NULL on failure
      **/
-    HBITMAP Load(const char * name, bool file = false);
+    HBITMAP Load( const char * name, bool file = false );
 
     /**
      * Draws the bitmap to the screen
@@ -84,7 +84,7 @@ public:
      * @param ySrc Used for image strips, the y coordinate in the bitmap to draw from
      * @return true if drawn, false if failed (probably because bitmap is not loaded)
      **/
-    bool Draw(HDC hDC, int xOffset = 0, int yOffset = 0, int width = 0, int height = 0, int xSrc = 0, int ySrc = 0);
+    bool Draw( HDC hDC, int xOffset = 0, int yOffset = 0, int width = 0, int height = 0, int xSrc = 0, int ySrc = 0 );
 
     /**
      * Clears the bitmap from the object ready to load a new one
@@ -99,14 +99,14 @@ public:
     /**
      * @return true if the class holds a valid bitmap handle
      */
-    operator bool() { return (m_hBitmap ? true : false); }
-    
+    operator bool() { return ( m_hBitmap ? true : false ); }
+
     /**
      * Attach to an HBITMAP
      * @warning This class will take responsibility for the bitmap and delete it
      *          when the class is destroyed and the reference count goes to 0
      **/
-    void Attach(HBITMAP hBmp);
+    void Attach( HBITMAP hBmp );
 };
 
 /// A class to bind the position within an image strip to the image when necessary
@@ -123,16 +123,16 @@ public:
      * @param yOffset the Y offset to draw the bitmap to on the screen
      * @return true if drawn, false if failed (probably because bitmap is not loaded)
      **/
-    bool Draw(HDC hDC, int xOffset = 0, int yOffset = 0);
+    bool Draw( HDC hDC, int xOffset = 0, int yOffset = 0 );
 
     /// Allow copying from the parent class
-    CBmpStrip & operator=(const CBmp & rhs);
+    CBmpStrip & operator=( const CBmp & rhs );
 
     /// Set the x, y, width, and height parameters.
-    void SetPos(int x, int y, int w, int h);
+    void SetPos( int x, int y, int w, int h );
 
     /// Attach to the specified bitmap
-    void Attach(const CBmp & bmp, int x, int y, int w, int h);
+    void Attach( const CBmp & bmp, int x, int y, int w, int h );
 private:
 
 };

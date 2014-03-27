@@ -18,50 +18,50 @@ CSkinStatic::CSkinStatic() { }
 
 CSkinStatic::~CSkinStatic() { }
 
-BEGIN_MESSAGE_MAP(CSkinStatic, CStatic)
-//{{AFX_MSG_MAP(CSkinStatic)
+BEGIN_MESSAGE_MAP( CSkinStatic, CStatic )
+    //{{AFX_MSG_MAP(CSkinStatic)
     ON_WM_CTLCOLOR_REFLECT()
     ON_WM_PAINT()
-	ON_WM_CREATE()
-	//}}AFX_MSG_MAP
+    ON_WM_CREATE()
+    //}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // CSkinStatic message handlers
-HBRUSH CSkinStatic::CtlColor(CDC* pDC, UINT nCtlColor) 
+HBRUSH CSkinStatic::CtlColor( CDC* pDC, UINT nCtlColor )
 {
-    pDC->SetBkMode(TRANSPARENT);        
-    return (HBRUSH) GetStockObject(NULL_BRUSH);
+    pDC->SetBkMode( TRANSPARENT );
+    return (HBRUSH)GetStockObject( NULL_BRUSH );
 }
 
-void CSkinStatic::OnPaint() 
+void CSkinStatic::OnPaint()
 {
-    CPaintDC dc(this); // device context for painting
-    m_skin.Draw(dc.m_hDC, 0, 0, 186, 12);
+    CPaintDC dc( this ); // device context for painting
+    m_skin.Draw( dc.m_hDC, 0, 0, 186, 12 );
 }
 
-int CSkinStatic::OnCreate(LPCREATESTRUCT lpCreateStruct) 
+int CSkinStatic::OnCreate( LPCREATESTRUCT lpCreateStruct )
 {
-    if (CStatic::OnCreate(lpCreateStruct) == -1)
-	return -1;
-    
+    if ( CStatic::OnCreate( lpCreateStruct ) == -1 )
+        return -1;
+
     lpCreateStruct->cx = 186;
     lpCreateStruct->cy = 12;
-    
+
     return 0;
 }
 
-void CSkinStatic::SetBmp(const char * skinname)
+void CSkinStatic::SetBmp( const char * skinname )
 {
-    CString skin("skins\\");    
+    CString skin( "skins\\" );
     skin += skinname;
     skin += ".bmp";
 
-    if(!m_skin.Load(skin, true))
+    if ( !m_skin.Load( skin, true ) )
     {
-	// Load default skin
-	m_skin.Load("IDB_DEFAULT_SKIN", false);
+        // Load default skin
+        m_skin.Load( "IDB_DEFAULT_SKIN", false );
     }
-    Invalidate(FALSE);
+    Invalidate( FALSE );
     UpdateWindow();
 }

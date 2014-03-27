@@ -53,21 +53,21 @@ CGridDropTarget::~CGridDropTarget()
 // Overloaded Register() function performs the normal COleDropTarget::Register
 // but also serves to connect this COleDropTarget with the parent grid control,
 // where all drop messages will ultimately be forwarded.
-BOOL CGridDropTarget::Register(CGridCtrl *pGridCtrl)
+BOOL CGridDropTarget::Register( CGridCtrl *pGridCtrl )
 {
-    if (m_bRegistered)
+    if ( m_bRegistered )
         return FALSE;
 
     // Stop re-entry problems
     static BOOL bInProcedure = FALSE;
-    if (bInProcedure)
+    if ( bInProcedure )
         return FALSE;
     bInProcedure = TRUE;
 
-    ASSERT(pGridCtrl->IsKindOf(RUNTIME_CLASS(CGridCtrl)));
-    ASSERT(pGridCtrl);
+    ASSERT( pGridCtrl->IsKindOf( RUNTIME_CLASS( CGridCtrl ) ) );
+    ASSERT( pGridCtrl );
 
-    if (!pGridCtrl || !pGridCtrl->IsKindOf(RUNTIME_CLASS(CGridCtrl)))
+    if ( !pGridCtrl || !pGridCtrl->IsKindOf( RUNTIME_CLASS( CGridCtrl ) ) )
     {
         bInProcedure = FALSE;
         return FALSE;
@@ -75,7 +75,7 @@ BOOL CGridDropTarget::Register(CGridCtrl *pGridCtrl)
 
     m_pGridCtrl = pGridCtrl;
 
-    m_bRegistered = COleDropTarget::Register(pGridCtrl);
+    m_bRegistered = COleDropTarget::Register( pGridCtrl );
 
     bInProcedure = FALSE;
     return m_bRegistered;
@@ -87,7 +87,7 @@ void CGridDropTarget::Revoke()
     COleDropTarget::Revoke();
 }
 
-BEGIN_MESSAGE_MAP(CGridDropTarget, COleDropTarget)
+BEGIN_MESSAGE_MAP( CGridDropTarget, COleDropTarget )
     //{{AFX_MSG_MAP(CGridDropTarget)
     //}}AFX_MSG_MAP
 END_MESSAGE_MAP()
@@ -95,60 +95,61 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CGridDropTarget message handlers
 
-DROPEFFECT CGridDropTarget::OnDragScroll(CWnd* pWnd, DWORD dwKeyState, CPoint /*point*/)
+DROPEFFECT CGridDropTarget::OnDragScroll( CWnd* pWnd, DWORD dwKeyState, CPoint /*point*/ )
 {
-//    TRACE("In CGridDropTarget::OnDragScroll\n");
-    if (pWnd->GetSafeHwnd() == m_pGridCtrl->GetSafeHwnd())
+    //    TRACE("In CGridDropTarget::OnDragScroll\n");
+    if ( pWnd->GetSafeHwnd() == m_pGridCtrl->GetSafeHwnd() )
     {
-        if (dwKeyState & MK_CONTROL)
+        if ( dwKeyState & MK_CONTROL )
             return DROPEFFECT_COPY;
         else
             return DROPEFFECT_MOVE;
-    } else
-        return DROPEFFECT_NONE;
-}
-
-DROPEFFECT CGridDropTarget::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, 
-                                        DWORD dwKeyState, CPoint point)
-{
-    TRACE(_T("In CGridDropTarget::OnDragEnter\n"));
-    ASSERT(m_pGridCtrl);
-
-    if (pWnd->GetSafeHwnd() == m_pGridCtrl->GetSafeHwnd())
-        return m_pGridCtrl->OnDragEnter(pDataObject, dwKeyState, point);
+    }
     else
         return DROPEFFECT_NONE;
 }
 
-void CGridDropTarget::OnDragLeave(CWnd* pWnd)
+DROPEFFECT CGridDropTarget::OnDragEnter( CWnd* pWnd, COleDataObject* pDataObject,
+    DWORD dwKeyState, CPoint point )
 {
-    TRACE(_T("In CGridDropTarget::OnDragLeave\n"));
-    ASSERT(m_pGridCtrl);
+    TRACE( _T( "In CGridDropTarget::OnDragEnter\n" ) );
+    ASSERT( m_pGridCtrl );
 
-    if (pWnd->GetSafeHwnd() == m_pGridCtrl->GetSafeHwnd())
+    if ( pWnd->GetSafeHwnd() == m_pGridCtrl->GetSafeHwnd() )
+        return m_pGridCtrl->OnDragEnter( pDataObject, dwKeyState, point );
+    else
+        return DROPEFFECT_NONE;
+}
+
+void CGridDropTarget::OnDragLeave( CWnd* pWnd )
+{
+    TRACE( _T( "In CGridDropTarget::OnDragLeave\n" ) );
+    ASSERT( m_pGridCtrl );
+
+    if ( pWnd->GetSafeHwnd() == m_pGridCtrl->GetSafeHwnd() )
         m_pGridCtrl->OnDragLeave();
 }
 
-DROPEFFECT CGridDropTarget::OnDragOver(CWnd* pWnd, COleDataObject* pDataObject, 
-                                       DWORD dwKeyState, CPoint point)
+DROPEFFECT CGridDropTarget::OnDragOver( CWnd* pWnd, COleDataObject* pDataObject,
+    DWORD dwKeyState, CPoint point )
 {
-//    TRACE("In CGridDropTarget::OnDragOver\n");
-    ASSERT(m_pGridCtrl);
+    //    TRACE("In CGridDropTarget::OnDragOver\n");
+    ASSERT( m_pGridCtrl );
 
-    if (pWnd->GetSafeHwnd() == m_pGridCtrl->GetSafeHwnd())
-        return m_pGridCtrl->OnDragOver(pDataObject, dwKeyState, point);
+    if ( pWnd->GetSafeHwnd() == m_pGridCtrl->GetSafeHwnd() )
+        return m_pGridCtrl->OnDragOver( pDataObject, dwKeyState, point );
     else
         return DROPEFFECT_NONE;
 }
 
-BOOL CGridDropTarget::OnDrop(CWnd* pWnd, COleDataObject* pDataObject,
-                             DROPEFFECT dropEffect, CPoint point)
+BOOL CGridDropTarget::OnDrop( CWnd* pWnd, COleDataObject* pDataObject,
+    DROPEFFECT dropEffect, CPoint point )
 {
-    TRACE(_T("In CGridDropTarget::OnDrop\n"));
-    ASSERT(m_pGridCtrl);
+    TRACE( _T( "In CGridDropTarget::OnDrop\n" ) );
+    ASSERT( m_pGridCtrl );
 
-    if (pWnd->GetSafeHwnd() == m_pGridCtrl->GetSafeHwnd())
-        return m_pGridCtrl->OnDrop(pDataObject, dropEffect, point);
+    if ( pWnd->GetSafeHwnd() == m_pGridCtrl->GetSafeHwnd() )
+        return m_pGridCtrl->OnDrop( pDataObject, dropEffect, point );
     else
         return FALSE;
 }

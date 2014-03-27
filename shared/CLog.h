@@ -1,14 +1,14 @@
 /********************************************************************\
-	created:		2001/03/22
-	created:		22:3:2001   20:20
-	filename: 	c:\my projects\dualmagic\controlappl\include\clog.h
-	file path:	c:\my projects\dualmagic\controlappl\include
-	file base:	clog
-	file ext:		h
-	author:			Alex Kucherenko
-	
-	purpose:	
-\********************************************************************/
+    created:        2001/03/22
+    created:        22:3:2001   20:20
+    filename:     c:\my projects\dualmagic\controlappl\include\clog.h
+    file path:    c:\my projects\dualmagic\controlappl\include
+    file base:    clog
+    file ext:        h
+    author:            Alex Kucherenko
+
+    purpose:
+    \********************************************************************/
 
 #ifndef _LOG_SYSTEM_LOG_MAIN_CLASS_H_
 #define _LOG_SYSTEM_LOG_MAIN_CLASS_H_
@@ -38,11 +38,11 @@
 #endif
 
 #ifndef LOG_INFO
-# define  LOG_NONE	0   // Specifies that no logging happens
+# define  LOG_NONE    0   // Specifies that no logging happens
 # define  LOG_ERROR     1
 # define  LOG_WARNING   2
 # define  LOG_INFO      3
-# define  LOG_DEBUG	4
+# define  LOG_DEBUG    4
 # define  LOG_MAX_LEVEL 4
 #endif
 
@@ -53,29 +53,29 @@
 
 class CLog
 {
-  public:
+public:
     // constructor 
-    CLog( IStoreLog *pStoreLog, long maxLevel, bool bParentToStore = true ) : 
-      m_strTimeFormat( DEF_TIME_LONG_STR ),
-      m_strMessageFormat( DEF_LONG_FORMAT_STR ),
-      m_bIsParent( bParentToStore ),    // if true - then we destroy StoreClass
-      m_bAutoFlush( true ),             // Store Log to disk immediately
-      m_lLevel( maxLevel ),
-      m_pStore( pStoreLog ),            // our store class
-      m_bLogTime( true )                // Add time string into log
+    CLog( IStoreLog *pStoreLog, long maxLevel, bool bParentToStore = true ) :
+        m_strTimeFormat( DEF_TIME_LONG_STR ),
+        m_strMessageFormat( DEF_LONG_FORMAT_STR ),
+        m_bIsParent( bParentToStore ),    // if true - then we destroy StoreClass
+        m_bAutoFlush( true ),             // Store Log to disk immediately
+        m_lLevel( maxLevel ),
+        m_pStore( pStoreLog ),            // our store class
+        m_bLogTime( true )                // Add time string into log
     {
-      m_tmpBuffer[0] = 0;
+        m_tmpBuffer[0] = 0;
     }
-    
+
     // destructor
-    ~CLog(  )
+    ~CLog()
     {
-	Delete();
+        Delete();
     };
 
     // Deletes the old logging mechanism and stores a new one
     void SetNewLog( IStoreLog *pStoreLog, long maxLevel, bool bParentToStore = true );
-  
+
     // Log function ( most used )
     inline std::string LogFormatString( std::string Format, ... );
     int LogString( long Level, const std::string &Message );
@@ -83,83 +83,83 @@ class CLog
     int LogRawString( const std::string &Message );
 
     // AutoFlush
-    inline bool GetAutoFlush( void ) const 
+    inline bool GetAutoFlush( void ) const
     {
-      return m_bAutoFlush;
+        return m_bAutoFlush;
     }
 
     inline void SetAutoFlush( bool state )
     {
-      m_bAutoFlush = state;
+        m_bAutoFlush = state;
     }
-    
+
     // TimeFormat
     inline std::string GetTimeFormat( void ) const
     {
-      return m_strTimeFormat;
+        return m_strTimeFormat;
     }
 
     inline void SetTimeFormat( const std::string &format )
     {
-      m_strTimeFormat = format.c_str();
+        m_strTimeFormat = format.c_str();
     }
 
     // Message format
-    inline const std::string &GetMessageFormat( void ) 
+    inline const std::string &GetMessageFormat( void )
     {
-      return m_strMessageFormat;
+        return m_strMessageFormat;
     }
 
     inline void SetMessageFormat( const std::string &format )
     {
-      m_strMessageFormat = format.c_str();
+        m_strMessageFormat = format.c_str();
     }
 
     // Write Time to Log
     inline bool GetLogTime( void ) const
     {
-      return  m_bLogTime;
+        return  m_bLogTime;
     }
 
     inline void SetLogTime( bool state )
     {
-      m_bLogTime = state;
+        m_bLogTime = state;
     }
 
     inline void SetMaxLevel( long maxLevel )
     {
-      m_lLevel    = maxLevel;
+        m_lLevel = maxLevel;
     }
 
-  protected:
+protected:
 
     virtual const std::string &LevelText( long /*Level*/ )
     {
-      m_strTempBuf = " LOG NOT IMPLEMENTED CATEGORY : ";
-      return m_strTempBuf;
+        m_strTempBuf = " LOG NOT IMPLEMENTED CATEGORY : ";
+        return m_strTempBuf;
     };
-    
-    inline const std::string &CurrentTime(  )
+
+    inline const std::string &CurrentTime()
     {
-      SYSTEMTIME	SystemTime;
-      GetLocalTime( &SystemTime );
-      
-      m_tmpBuffer[0] = 0;
+        SYSTEMTIME    SystemTime;
+        GetLocalTime( &SystemTime );
 
-      _snprintf( m_tmpBuffer, 
-        sizeof( m_tmpBuffer ),
-        m_strTimeFormat.c_str(), 
-        SystemTime.wHour, SystemTime.wMinute, 
-        SystemTime.wSecond, SystemTime.wMilliseconds );
+        m_tmpBuffer[0] = 0;
 
-      m_strTempBuf = m_tmpBuffer;
-      
-      return m_strTempBuf;
+        _snprintf( m_tmpBuffer,
+            sizeof( m_tmpBuffer ),
+            m_strTimeFormat.c_str(),
+            SystemTime.wHour, SystemTime.wMinute,
+            SystemTime.wSecond, SystemTime.wMilliseconds );
+
+        m_strTempBuf = m_tmpBuffer;
+
+        return m_strTempBuf;
     };
 
 
-  private:      
-    void Delete( );
+private:
+    void Delete();
 
     IStoreLog     *m_pStore;
     long          m_lLevel;
@@ -169,8 +169,8 @@ class CLog
     bool          m_bIsParent;
     bool          m_bLogTime;
 
-    char          m_tmpBuffer[ MAX_STRING_LENGTH ];
-    std::string   m_strTempBuf;        
+    char          m_tmpBuffer[MAX_STRING_LENGTH];
+    std::string   m_strTempBuf;
 };
 
 #pragma warning( pop )

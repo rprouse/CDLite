@@ -11,12 +11,12 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
-#define VC_EXTRALEAN		// Exclude rarely-used stuff from Windows headers
+#define VC_EXTRALEAN        // Exclude rarely-used stuff from Windows headers
 
 #include <afx.h>
 #include <afxwin.h>
 #include <afxcmn.h>
-#include <afxdtctl.h>		// MFC support for Internet Explorer 4 Common Controls
+#include <afxdtctl.h>        // MFC support for Internet Explorer 4 Common Controls
 #include <shlwapi.h>
 
 //{{AFX_INSERT_LOCATION}}

@@ -34,29 +34,29 @@
 //====================================================================
 //  CBmp()
 //====================================================================
-CBmp::CBmp() : m_hBitmap(NULL), m_pCount(NULL) { }
+CBmp::CBmp() : m_hBitmap( NULL ), m_pCount( NULL ) { }
 
 //====================================================================
 //  CBmp(const char *, bool)
 //====================================================================
-CBmp::CBmp(const char * name, bool file) : m_hBitmap(NULL), m_pCount(NULL)
+CBmp::CBmp( const char * name, bool file ) : m_hBitmap( NULL ), m_pCount( NULL )
 {
-    Load(name, file);
+    Load( name, file );
 }
 
 //====================================================================
 //  CBmp(HBITMAP)
 //====================================================================
-CBmp::CBmp(HBITMAP hBmp) : m_hBitmap(hBmp), m_pCount(new int(1)) { }
+CBmp::CBmp( HBITMAP hBmp ) : m_hBitmap( hBmp ), m_pCount( new int( 1 ) ) { }
 
 //====================================================================
 //  CBmp(const CBmp &)
 //====================================================================
-CBmp::CBmp(const CBmp & rhs) : m_hBitmap(rhs.m_hBitmap), m_pCount(rhs.m_pCount)
+CBmp::CBmp( const CBmp & rhs ) : m_hBitmap( rhs.m_hBitmap ), m_pCount( rhs.m_pCount )
 {
-    if(m_pCount)
+    if ( m_pCount )
     {
-	(*m_pCount)++;
+        ( *m_pCount )++;
     }
 }
 
@@ -75,13 +75,13 @@ CBmp::~CBmp()
 //====================================================================
 //  operator=(const CBmp &)
 //====================================================================
-CBmp & CBmp::operator=(const CBmp & rhs)
+CBmp & CBmp::operator=( const CBmp & rhs )
 {
-    if(m_hBitmap == rhs.m_hBitmap)  return *this;
+    if ( m_hBitmap == rhs.m_hBitmap )  return *this;
     Clear();
     m_hBitmap = rhs.m_hBitmap;
-    m_pCount  = rhs.m_pCount;
-    (*m_pCount)++;
+    m_pCount = rhs.m_pCount;
+    ( *m_pCount )++;
     return *this;
 }
 
@@ -89,12 +89,12 @@ CBmp & CBmp::operator=(const CBmp & rhs)
 //====================================================================
 //  operator=(const HBITMAP &)
 //====================================================================
-CBmp & CBmp::operator=(const HBITMAP & rhs)
+CBmp & CBmp::operator=( const HBITMAP & rhs )
 {
-    if(m_hBitmap == rhs) return *this;
+    if ( m_hBitmap == rhs ) return *this;
     Clear();
     m_hBitmap = rhs;
-    m_pCount  = new int(1);
+    m_pCount = new int( 1 );
     return *this;
 }
 
@@ -109,14 +109,14 @@ void CBmp::Clear()
 {
     // If there is a reference counter and it goes to zero,
     // delete the reference counter and the bitmap handle
-    if(m_pCount && (--(*m_pCount) == 0))
+    if ( m_pCount && ( --( *m_pCount ) == 0 ) )
     {
-	delete m_pCount;
-	if(m_hBitmap)
-	    DeleteObject(m_hBitmap);
+        delete m_pCount;
+        if ( m_hBitmap )
+            DeleteObject( m_hBitmap );
     }
     // Clear all references to the count and the bitmap handle
-    m_pCount  = NULL;
+    m_pCount = NULL;
     m_hBitmap = NULL;
 }
 
@@ -124,22 +124,22 @@ void CBmp::Clear()
 //====================================================================
 //  Load(const char *, bool) 
 //====================================================================
-HBITMAP CBmp::Load(const char * name, bool file) 
-{  
+HBITMAP CBmp::Load( const char * name, bool file )
+{
     Clear();
 
-    if(!name)
-	return NULL;
+    if ( !name )
+        return NULL;
 
     UINT flags = LR_CREATEDIBSECTION;
-    if(file)
-	flags |= LR_LOADFROMFILE;
-    m_hBitmap = (HBITMAP)::LoadImage(AfxGetInstanceHandle(), name, IMAGE_BITMAP, 0, 0, flags );
+    if ( file )
+        flags |= LR_LOADFROMFILE;
+    m_hBitmap = ( HBITMAP )::LoadImage( AfxGetInstanceHandle(), name, IMAGE_BITMAP, 0, 0, flags );
 
-    if(m_hBitmap)
+    if ( m_hBitmap )
     {
-	// Set the reference count to 1
-	m_pCount = new int(1);
+        // Set the reference count to 1
+        m_pCount = new int( 1 );
     }
 
     return m_hBitmap;
@@ -148,22 +148,22 @@ HBITMAP CBmp::Load(const char * name, bool file)
 //====================================================================
 //  Draw(HDC, int, int, int, int, int, int)
 //====================================================================
-bool CBmp::Draw(HDC hDC, int xOffset, int yOffset, int width, int height, int xSrc, int ySrc) 
+bool CBmp::Draw( HDC hDC, int xOffset, int yOffset, int width, int height, int xSrc, int ySrc )
 {
-    if(!m_hBitmap)
-	return false;
+    if ( !m_hBitmap )
+        return false;
 
     HDC memDC;
     BITMAP bmp;
-    memDC = CreateCompatibleDC(hDC);
-    SelectObject(memDC, m_hBitmap);
-    GetObject(m_hBitmap, sizeof(bmp), (LPSTR) &bmp);
-    if(width == 0)
-	width = bmp.bmWidth;
-    if(height == 0)
-	height = bmp.bmHeight;
-    BitBlt(hDC,xOffset,yOffset, width, height, memDC, xSrc, ySrc, SRCCOPY);
-    DeleteDC(memDC);
+    memDC = CreateCompatibleDC( hDC );
+    SelectObject( memDC, m_hBitmap );
+    GetObject( m_hBitmap, sizeof( bmp ), (LPSTR)&bmp );
+    if ( width == 0 )
+        width = bmp.bmWidth;
+    if ( height == 0 )
+        height = bmp.bmHeight;
+    BitBlt( hDC, xOffset, yOffset, width, height, memDC, xSrc, ySrc, SRCCOPY );
+    DeleteDC( memDC );
 
     return true;
 }
@@ -171,7 +171,7 @@ bool CBmp::Draw(HDC hDC, int xOffset, int yOffset, int width, int height, int xS
 //====================================================================
 //  Attach(HBITMAP)
 //====================================================================
-void CBmp::Attach(HBITMAP hBmp)
+void CBmp::Attach( HBITMAP hBmp )
 {
     *this = hBmp;
 }
@@ -185,37 +185,37 @@ CBmpStrip::CBmpStrip() : CBmp(), CRect() { }
 //====================================================================
 //  Draw(HDC hDC)
 //====================================================================
-bool CBmpStrip::Draw(HDC hDC, int xOffset, int yOffset) 
-{ 
-    return CBmp::Draw(hDC, xOffset, yOffset, Width(), Height(), left, top); 
+bool CBmpStrip::Draw( HDC hDC, int xOffset, int yOffset )
+{
+    return CBmp::Draw( hDC, xOffset, yOffset, Width(), Height(), left, top );
 }
 
 //====================================================================
 //  operator=(const CBmp & rhs)
 //====================================================================
-CBmpStrip & CBmpStrip::operator=(const CBmp & rhs)
+CBmpStrip & CBmpStrip::operator=( const CBmp & rhs )
 {
-    CBmp::operator =(rhs);
-    SetPos(0, 0, 0, 0);
+    CBmp::operator =( rhs );
+    SetPos( 0, 0, 0, 0 );
     return *this;
 }
 
 //====================================================================
 //  SetPos(int x, int y, int w, int h)
 //====================================================================
-void CBmpStrip::SetPos(int x, int y, int w, int h)
+void CBmpStrip::SetPos( int x, int y, int w, int h )
 {
-    left   = x;
-    top    = y;
+    left = x;
+    top = y;
     bottom = y + h;
-    right  = x + w;
+    right = x + w;
 }
 
 //====================================================================
 //  Attach(const CBmp & bmp, int x, int y, int w, int h)
 //====================================================================
-void CBmpStrip::Attach(const CBmp & bmp, int x, int y, int w, int h)
+void CBmpStrip::Attach( const CBmp & bmp, int x, int y, int w, int h )
 {
     *this = bmp;
-    SetPos(x, y, w, h);
+    SetPos( x, y, w, h );
 }

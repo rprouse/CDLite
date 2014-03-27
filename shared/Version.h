@@ -16,33 +16,33 @@
 #endif
 
 
-class CVersion  
-{    
+class CVersion
+{
 public:
-    CVersion(WORD major = 1, WORD minor = 0, WORD increment = 0, WORD build = 0);
-    CVersion(const CString&);
-    CVersion(const CVersion & rhs);
+    CVersion( WORD major = 1, WORD minor = 0, WORD increment = 0, WORD build = 0 );
+    CVersion( const CString& );
+    CVersion( const CVersion & rhs );
     virtual ~CVersion();
-    
-    operator CString() const;
-    
-    CVersion& operator=(const CString  & rhs);
-    CVersion& operator=(const CVersion & rhs);
 
-    bool operator>(const CVersion& rhs) const;
-    
-    WORD Major(void) const;
-    WORD Minor(void) const;
-    WORD Increment(void) const;
-    WORD Build(void) const;
+    operator CString() const;
+
+    CVersion& operator=( const CString  & rhs );
+    CVersion& operator=( const CVersion & rhs );
+
+    bool operator>( const CVersion& rhs ) const;
+
+    WORD Major( void ) const;
+    WORD Minor( void ) const;
+    WORD Increment( void ) const;
+    WORD Build( void ) const;
 
     CString StringValue() const;
-    CString ShortStringValue() const;   
+    CString ShortStringValue() const;
 
-    int Convert(const CString&);
+    int Convert( const CString& );
 
 protected:
-    WORD nMajor, nMinor, nIncrement, nBuild; 
+    WORD nMajor, nMinor, nIncrement, nBuild;
 };
 
 #endif 

@@ -12,7 +12,7 @@
 #error include 'stdafx.h' before including this file for PCH
 #endif
 
-#include "resource.h"		// main symbols
+#include "resource.h"        // main symbols
 
 /////////////////////////////////////////////////////////////////////////////
 // CCDLiteApp:
@@ -23,16 +23,16 @@ class CCDLiteApp : public CWinApp
 {
 public:
     CCDLiteApp();
-    
+
     // Overrides
     // ClassWizard generated virtual function overrides
     //{{AFX_VIRTUAL(CCDLiteApp)
 public:
     virtual BOOL InitInstance();
     //}}AFX_VIRTUAL
-    
+
     // Implementation
-    
+
     //{{AFX_MSG(CCDLiteApp)
     // NOTE - the ClassWizard will add and remove member functions here.
     //    DO NOT EDIT what you see in these blocks of generated code !

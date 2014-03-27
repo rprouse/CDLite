@@ -20,30 +20,30 @@
 #include <Library.h>
 #endif
 
-class CPicture  
+class CPicture
 {
 public:
     CPicture();
     virtual ~CPicture();
-    
-    bool  Load(CString sResourceType, CString sResource);
-    bool  Load(CString sFileName);
-    bool  Draw(CDC* pDC);
-    bool  Draw(CDC* pDC, CPoint Pos);
-    bool  Draw(CDC* pDC, CPoint Pos, CSize Size);
-    bool  Draw(CDC* pDC, double nSizeRatio);
-    bool  Draw(CDC* pDC, CPoint Pos, double nSizeRatio);
-    CSize GetSize(CDC* pDC);
+
+    bool  Load( CString sResourceType, CString sResource );
+    bool  Load( CString sFileName );
+    bool  Draw( CDC* pDC );
+    bool  Draw( CDC* pDC, CPoint Pos );
+    bool  Draw( CDC* pDC, CPoint Pos, CSize Size );
+    bool  Draw( CDC* pDC, double nSizeRatio );
+    bool  Draw( CDC* pDC, CPoint Pos, double nSizeRatio );
+    CSize GetSize( CDC* pDC );
     void  UnLoad();
 
 private:
-    static bool GetResource(LPSTR lpName, LPSTR lpType, void* pResource, int& nBufSize);
-    bool  LoadFromBuffer(BYTE* pBuff, int nSize);
-    bool  Draw(CDC* pDC, int x, int y, int cx, int cy);
+    static bool GetResource( LPSTR lpName, LPSTR lpType, void* pResource, int& nBufSize );
+    bool  LoadFromBuffer( BYTE* pBuff, int nSize );
+    bool  Draw( CDC* pDC, int x, int y, int cx, int cy );
     IPicture * m_pPicture;
     enum
     {
-	HIMETRIC_INCH	= 2540
+        HIMETRIC_INCH = 2540
     };
 };
 

@@ -41,28 +41,28 @@
 
 class CProgressWnd : public CWnd
 {
-// Construction/Destruction
+    // Construction/Destruction
 public:
     CProgressWnd();
-    CProgressWnd(CWnd* pParent, LPCTSTR pszTitle, BOOL bSmooth = FALSE);
+    CProgressWnd( CWnd* pParent, LPCTSTR pszTitle, BOOL bSmooth = FALSE );
     virtual ~CProgressWnd();
 
-    BOOL Create(CWnd* pParent, LPCTSTR pszTitle, BOOL bSmooth = FALSE);
-    BOOL GoModal(LPCTSTR pszTitle =_T("Progress"), BOOL bSmooth = FALSE);
+    BOOL Create( CWnd* pParent, LPCTSTR pszTitle, BOOL bSmooth = FALSE );
+    BOOL GoModal( LPCTSTR pszTitle = _T( "Progress" ), BOOL bSmooth = FALSE );
 
 protected:
     void CommonConstruct();
 
-// Operations
+    // Operations
 public:
-    void SetRange(int nLower, int nUpper, int nStep = 1);
-                                                    // Set range and step size
-    int OffsetPos(int nPos);                        // Same as CProgressCtrl
+    void SetRange( int nLower, int nUpper, int nStep = 1 );
+    // Set range and step size
+    int OffsetPos( int nPos );                        // Same as CProgressCtrl
     int StepIt();                                   //    "
-    int SetStep(int nStep);                         //    "
-    int SetPos(int nPos);                           //    "
+    int SetStep( int nStep );                         //    "
+    int SetPos( int nPos );                           //    "
 
-    void SetText(LPCTSTR fmt, ...);                 // Set text in text area
+    void SetText( LPCTSTR fmt, ... );                 // Set text in text area
 
     void Clear();                                   // Clear text, reset bar
     void Hide();                                    // Hide window
@@ -70,11 +70,11 @@ public:
 
     BOOL Cancelled() { return m_bCancelled; }       // Was "Cancel" hit?
 
-	void SetWindowSize(int nNumTextLines, int nWindowWidth = 390);
+    void SetWindowSize( int nNumTextLines, int nWindowWidth = 390 );
 
-    void PeekAndPump(BOOL bCancelOnESCkey = TRUE);  // Message pumping for modal operation   
-    
-// Implementation
+    void PeekAndPump( BOOL bCancelOnESCkey = TRUE );  // Message pumping for modal operation   
+
+    // Implementation
 protected:
     void GetPreviousSettings();
     void SaveCurrentSettings();
@@ -92,22 +92,22 @@ protected:
     CProgressCtrl m_wndProgress;
     CButton       m_CancelButton;
     CString       m_strTitle,
-                  m_strCancelLabel;
+        m_strCancelLabel;
     CFont         m_font;
 
 
-// Overrides
+    // Overrides
     // ClassWizard generated virtual function overrides
     //{{AFX_VIRTUAL(CProgressWnd)
-	public:
-	virtual BOOL DestroyWindow();
-	//}}AFX_VIRTUAL
+public:
+    virtual BOOL DestroyWindow();
+    //}}AFX_VIRTUAL
 
-// Generated message map functions
+    // Generated message map functions
 protected:
     //{{AFX_MSG(CProgressWnd)
-    afx_msg BOOL OnEraseBkgnd(CDC* pDC);
-	//}}AFX_MSG
+    afx_msg BOOL OnEraseBkgnd( CDC* pDC );
+    //}}AFX_MSG
     afx_msg void OnCancel();
     DECLARE_MESSAGE_MAP()
 };

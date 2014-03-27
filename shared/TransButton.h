@@ -24,15 +24,15 @@ public:
 
     // ClassWizard generated virtual function overrides
     //{{AFX_VIRTUAL(CTransButton)
-    public:
-    virtual void SetWindowText(LPCTSTR lpszString);
+public:
+    virtual void SetWindowText( LPCTSTR lpszString );
     //}}AFX_VIRTUAL  
 
 protected:
     //{{AFX_MSG(CTransButton)
-    afx_msg HBRUSH CtlColor(CDC* pDC, UINT nCtlColor);
+    afx_msg HBRUSH CtlColor( CDC* pDC, UINT nCtlColor );
     //}}AFX_MSG
-    
+
     DECLARE_MESSAGE_MAP()
 };
 
