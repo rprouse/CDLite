@@ -71,7 +71,6 @@ BEGIN_MESSAGE_MAP(CCDLiteDlg, CBmpDlg)
     ON_COMMAND(IDM_CD2, OnCD2)
     ON_COMMAND(IDM_CD3, OnCD3)
     ON_COMMAND(IDM_CD4, OnCD4)
-    ON_COMMAND(IDM_HELP, OnHelp)
     ON_COMMAND(IDM_CLOSE, OnClose)
     ON_COMMAND(IDM_EJECT, OnEject)
     ON_COMMAND(IDM_MINIMIZE, OnMinimize)
@@ -535,12 +534,6 @@ LONG CCDLiteDlg::OnMciNotify(UINT wFlags, LONG lDevId)
 	break;
     }	
     return 0L;
-}
-
-void CCDLiteDlg::OnHelp() 
-{
-    // TODO: Launch "html/index.html"
-    CSystem::LaunchProgram("html/index.html");	
 }
 
 void CCDLiteDlg::OnStopOnClose() 

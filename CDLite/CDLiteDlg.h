@@ -75,7 +75,6 @@ protected:
     afx_msg void OnCD2();
     afx_msg void OnCD3();
     afx_msg void OnCD4();
-    afx_msg void OnHelp();
     afx_msg void OnStopOnClose();
     //}}AFX_MSG
     afx_msg BOOL OnDeviceChange( UINT nEventType, DWORD dwData );

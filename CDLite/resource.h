@@ -38,7 +38,6 @@
 #define IDM_SKIN                        32771
 #define IDM_RANDOM                      32772
 #define IDM_MINIMIZE                    32773
-#define IDM_HELP                        32775
 #define IDM_STOP_ON_CLOSE               32776
 
 // Next default values for new objects
