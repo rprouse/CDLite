@@ -1,8 +1,15 @@
-# CD Lite #
+# CDLite #
 
 This is an old MFC program that I wrote way back in the dark ages of 2003. I found it on an old hard drive, so decided to dust it off and see if I can get it running again so that I can listen to CDs at work with it.
 
-It uses a MFC with a Multi-Byte character set which is no longer supported. This means that it requires the [MFC MBCS DLL Add-on](http://go.microsoft.com/fwlink/p/?LinkId=286820) to compile. If I get this working and decide to keep it, my first task will be to convert to Unicode.
+![CDLite Brown](http://i.imgur.com/sjAgrWb.png)
+
+![CDLite Emerald](http://i.imgur.com/ZVupyq4.png)
+
+![CDLite Orange](http://i.imgur.com/JelpnFY.png)
+
+![CDLite Silver](http://i.imgur.com/bJYWb9z.png)
+
 
 ## The Original Blurb ##
 
