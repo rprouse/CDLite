@@ -28,7 +28,6 @@
 #include <win/HoverButton.h>
 #include <win/FileInfo.h>
 #include <win/Registry.h>
-#include <win/Hyperlink.h>
 #include <win/System.h>
 
 //{{AFX_INSERT_LOCATION}}

@@ -21,7 +21,6 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 {
     CDialog::DoDataExchange(pDX);
     //{{AFX_DATA_MAP(CAboutDlg)
-	DDX_Control(pDX, IDC_URL, m_url);
 	//}}AFX_DATA_MAP
 }
 

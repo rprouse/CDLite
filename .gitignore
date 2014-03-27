@@ -158,3 +158,4 @@ $RECYCLE.BIN/
 #Nuget Packages
 packages/
 !packages/repositories.config
+CDLite/include/

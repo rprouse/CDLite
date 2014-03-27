@@ -18,7 +18,6 @@ public:
     // Dialog Data
     //{{AFX_DATA(CAboutDlg)
 	enum { IDD = IDD_ABOUTBOX };
-	CHyperLink	m_url;
 	//}}AFX_DATA
     
     // ClassWizard generated virtual function overrides

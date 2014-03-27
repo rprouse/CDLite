@@ -57,9 +57,6 @@
     <ClCompile Include="HoverButton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HyperLink.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GridCtrl\InPlaceEdit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -179,9 +176,6 @@
       <Filter>Library Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="HoverButton.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="hyperlink.h">
       <Filter>Library Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="Label.h">
