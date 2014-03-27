@@ -42,22 +42,7 @@
     <ClCompile Include="FolderDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GridCtrl\GridCell.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GridCtrl\GridCellBase.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GridCtrl\GridCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GridCtrl\GridDropTarget.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="HoverButton.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GridCtrl\InPlaceEdit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Label.cpp">
@@ -87,9 +72,6 @@
     <ClCompile Include="System.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GridCtrl\TitleTip.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="TransButton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -113,33 +95,15 @@
     <ClInclude Include="AutoBuild.h">
       <Filter>Local Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GridCtrl\GridDropTarget.h">
-      <Filter>Local Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GridCtrl\InPlaceEdit.h">
-      <Filter>Local Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GridCtrl\MemDC.h">
-      <Filter>Local Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="StdAfx.h">
       <Filter>Local Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GridCtrl\TitleTip.h">
-      <Filter>Local Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="sources.txt" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Bmp.h">
       <Filter>Library Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="BmpDlg.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="GridCtrl\CellRange.h">
       <Filter>Library Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="CFileLog.h">
@@ -164,15 +128,6 @@
       <Filter>Library Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="FolderDialog.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="GridCtrl\GridCell.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="GridCtrl\GridCellBase.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="GridCtrl\GridCtrl.h">
       <Filter>Library Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="HoverButton.h">
