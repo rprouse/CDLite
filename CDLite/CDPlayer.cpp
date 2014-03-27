@@ -272,7 +272,7 @@ DWORD CDPlayer::GetPosition()
 
 void CDPlayer::ShowError( DWORD dwError )
 {
-    WCHAR szErrorBuf[MAXERRORLENGTH];
+    TCHAR szErrorBuf[MAXERRORLENGTH];
     MessageBeep( MB_ICONEXCLAMATION );
     if ( mciGetErrorString( dwError, (LPWSTR)szErrorBuf, MAXERRORLENGTH ) )
     {

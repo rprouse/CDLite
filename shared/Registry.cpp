@@ -119,7 +119,7 @@ bool CRegistry::GetValue( LPCWSTR name, CString &value )
     if ( RegQueryValueEx( m_hkey, name, NULL, &type, NULL, &size ) != ERROR_SUCCESS || type != REG_SZ )
         return false;
 
-    char *buff = new char[size];
+    TCHAR *buff = new TCHAR[size/sizeof(TCHAR)];
     if ( !buff ) return false;
 
     if ( RegQueryValueEx( m_hkey, name, NULL, &type, (LPBYTE)buff, &size ) != ERROR_SUCCESS )
@@ -185,12 +185,12 @@ bool CRegistry::SetDWORD64( LPCWSTR name, DWORD64 value )
 
 bool CRegistry::SetString( LPCWSTR name, LPCWSTR value )
 {
-    return( RegSetValueEx( m_hkey, name, 0, REG_SZ, (LPBYTE)value, lstrlen( value ) + 1 ) == ERROR_SUCCESS );
+    return( RegSetValueEx( m_hkey, name, 0, REG_SZ, (LPBYTE)value, ( lstrlen( value ) + 1 ) * sizeof( TCHAR ) ) == ERROR_SUCCESS );
 }
 
 bool CRegistry::SetString( LPCWSTR name, const CString & value )
 {
-    return( RegSetValueEx( m_hkey, name, 0, REG_SZ, (LPBYTE)value.operator LPCWSTR(), value.GetLength() + 1 ) == ERROR_SUCCESS );
+    return( RegSetValueEx( m_hkey, name, 0, REG_SZ, (BYTE*)(LPCWSTR)value, ( value.GetLength() + 1 ) * sizeof( TCHAR ) ) == ERROR_SUCCESS );
 }
 
 bool CRegistry::SetBinary( LPCWSTR name, BYTE * value, DWORD len )
