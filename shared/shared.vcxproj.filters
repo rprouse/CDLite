@@ -36,58 +36,19 @@
     <ClCompile Include="FileInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FileVersion.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FolderDialog.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="HoverButton.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Label.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Library.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Picture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ProgressWnd.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Registry.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ShadeDlg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="StdAfx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Subclass.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="System.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TransButton.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TransDialog.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TransStatic.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TrayIcon.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Version.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="xShadeButton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -124,16 +85,7 @@
     <CustomBuild Include="FileInfo.h">
       <Filter>Library Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="FileVersion.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="FolderDialog.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="HoverButton.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Label.h">
       <Filter>Library Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="Library.h">
@@ -142,40 +94,10 @@
     <CustomBuild Include="logsync.h">
       <Filter>Library Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="Picture.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="ProgressWnd.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="Registry.h">
       <Filter>Library Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="ShadeDlg.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Subclass.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="System.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="TransButton.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="TransDialog.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="TransStatic.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="TrayIcon.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="Version.h">
-      <Filter>Library Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="xShadeButton.h">
       <Filter>Library Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
