@@ -401,7 +401,7 @@ void CCDLiteDlg::LoadRegistry()
     if ( reg.GetValue( "XPos", &x ) && reg.GetValue( "YPos", &y ) )
     {
         SetWindowPos( &wndTopMost, x, y, 0, 0, SWP_NOSIZE );
-        EnsureOnScreen();
+        //EnsureOnScreen();
     }
     else
     {
@@ -431,7 +431,7 @@ void CCDLiteDlg::OnLButtonUp( UINT nFlags, CPoint point )
 {
     // Override the default behaviour, I want the player to stay
     // on the window.
-    EnsureOnScreen();
+    //EnsureOnScreen();
 
     CBmpDlg::OnLButtonUp( nFlags, point );
 }
