@@ -299,7 +299,7 @@ int CFileInfoArray::AddDir( const CString strDirName, const CString strMask, con
     hFind = FindFirstFile( strText, &wfd );
     if ( hFind != INVALID_HANDLE_VALUE ) {
         do {
-            if ( ( strcmp( wfd.cFileName, _T( "." ) ) ) && ( strcmp( wfd.cFileName, _T( ".." ) ) ) &&
+            if ( ( wcscmp( wfd.cFileName, _T( "." ) ) ) && ( wcscmp( wfd.cFileName, _T( ".." ) ) ) &&
                 ( wfd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY ) ) {
                 strText = strDirName + wfd.cFileName;
                 if ( bIncludeDirs ) {

@@ -29,7 +29,7 @@ CDPlayer::CDPlayer() : m_wDeviceID( 0 ), m_hWnd( NULL ), m_currentDevice( 0 )
     for ( nDrive = 0; nDrive < 32; nDrive++ ) {
         if ( nDriveMask & ( 1 << nDrive ) ) {
             //This drive is available
-            strTemp.Format( "%c:\\", nDrive + 'A' );
+            strTemp.Format( _T( "%c:\\" ), nDrive + 'A' );
             nType = ::GetDriveType( strTemp );
             if ( nType == DRIVE_CDROM ) {
                 //Only report on CDROM drives
@@ -65,14 +65,14 @@ DWORD CDPlayer::Open()
     MCI_OPEN_PARMS mciOpenParms;
     ZeroMemory( &mciOpenParms, sizeof( mciOpenParms ) );
 
-    mciOpenParms.lpstrDeviceType = (LPCSTR)MCI_DEVTYPE_CD_AUDIO;
+    mciOpenParms.lpstrDeviceType = (LPCWSTR )MCI_DEVTYPE_CD_AUDIO;
     if ( m_numDevices == 0 )
     {
-        AfxMessageBox( "No CD Audio devices found on your system", MB_OK | MB_ICONSTOP );
+        AfxMessageBox( _T( "No CD Audio devices found on your system" ), MB_OK | MB_ICONSTOP );
         return 1L;
     }
-    wsprintf( szElementName, TEXT( "%c:" ), m_strCdRomDrives.GetAt( m_currentDevice ) );
-    wsprintf( szAliasName, TEXT( "CD%lu:" ), dwAliasCount );
+    wsprintf( szElementName, _T( "%c:" ), m_strCdRomDrives.GetAt( m_currentDevice ) );
+    wsprintf( szAliasName, _T( "CD%lu:" ), dwAliasCount );
 
     mciOpenParms.lpstrElementName = szElementName;
     mciOpenParms.lpstrAlias = szAliasName;
@@ -231,7 +231,7 @@ void CDPlayer::Eject()
         return;
 
     MCI_SET_PARMS mciset;
-    mciSendCommand( m_wDeviceID, MCI_SET, MCI_SET_DOOR_OPEN, (DWORD)(LPSTR)&mciset );
+    mciSendCommand( m_wDeviceID, MCI_SET, MCI_SET_DOOR_OPEN, (DWORD)(LPCWSTR )&mciset );
 }
 
 DWORD CDPlayer::GetStatus( DWORD dwItem, DWORD dwTrack )
@@ -272,15 +272,15 @@ DWORD CDPlayer::GetPosition()
 
 void CDPlayer::ShowError( DWORD dwError )
 {
-    char szErrorBuf[MAXERRORLENGTH];
+    WCHAR szErrorBuf[MAXERRORLENGTH];
     MessageBeep( MB_ICONEXCLAMATION );
-    if ( mciGetErrorString( dwError, (LPSTR)szErrorBuf, MAXERRORLENGTH ) )
+    if ( mciGetErrorString( dwError, (LPWSTR)szErrorBuf, MAXERRORLENGTH ) )
     {
-        MessageBox( m_hWnd, szErrorBuf, "CD Player Error", MB_ICONEXCLAMATION );
+        MessageBox( m_hWnd, szErrorBuf, _T( "CD Player Error" ), MB_ICONEXCLAMATION );
     }
     else
     {
-        MessageBox( m_hWnd, "Unknown Error", "CD Player Error", MB_ICONEXCLAMATION );
+        MessageBox( m_hWnd, _T( "Unknown Error" ), _T( "CD Player Error" ), MB_ICONEXCLAMATION );
     }
 }
 

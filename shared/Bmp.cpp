@@ -37,9 +37,9 @@
 CBmp::CBmp() : m_hBitmap( NULL ), m_pCount( NULL ) { }
 
 //====================================================================
-//  CBmp(const char *, bool)
+//  CBmp(LPCWSTR , bool)
 //====================================================================
-CBmp::CBmp( const char * name, bool file ) : m_hBitmap( NULL ), m_pCount( NULL )
+CBmp::CBmp( LPCWSTR name, bool file ) : m_hBitmap( NULL ), m_pCount( NULL )
 {
     Load( name, file );
 }
@@ -122,9 +122,9 @@ void CBmp::Clear()
 
 
 //====================================================================
-//  Load(const char *, bool) 
+//  Load(LPCWSTR , bool) 
 //====================================================================
-HBITMAP CBmp::Load( const char * name, bool file )
+HBITMAP CBmp::Load( LPCWSTR name, bool file )
 {
     Clear();
 
@@ -157,7 +157,7 @@ bool CBmp::Draw( HDC hDC, int xOffset, int yOffset, int width, int height, int x
     BITMAP bmp;
     memDC = CreateCompatibleDC( hDC );
     SelectObject( memDC, m_hBitmap );
-    GetObject( m_hBitmap, sizeof( bmp ), (LPSTR)&bmp );
+    GetObject( m_hBitmap, sizeof( bmp ), (LPVOID)&bmp );
     if ( width == 0 )
         width = bmp.bmWidth;
     if ( height == 0 )

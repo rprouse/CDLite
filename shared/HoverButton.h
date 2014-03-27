@@ -52,25 +52,25 @@ public:
     @param resource Resource name of the active bitmap
     @param file Set to true to load from a file, false to load from a resource
     @return true if loaded successfully */
-    bool SetNormalBitmap( const char * name, bool file = false );
+    bool SetNormalBitmap( LPCWSTR name, bool file = false );
 
     /** Sets this button's bitmap when the mouse clicks on it.
     @param resource Resource name of the active bitmap
     @param file Set to true to load from a file, false to load from a resource
     @return true if loaded successfully */
-    bool SetDepressedBitmap( const char * name, bool file = false );
+    bool SetDepressedBitmap( LPCWSTR name, bool file = false );
 
     /** Sets this button's bitmap when the mouse is over it.
     @param resource Resource name of the active bitmap
     @param file Set to true to load from a file, false to load from a resource
     @return true if loaded successfully */
-    bool SetHoverBitmap( const char * name, bool file = false );
+    bool SetHoverBitmap( LPCWSTR name, bool file = false );
 
     /** Sets this button's bitmap when the button is disabled.
     @param resource Resource name of the active bitmap
     @param file Set to true to load from a file, false to load from a resource
     @return true if loaded successfully */
-    bool SetDisabledBitmap( const char * name, bool file = false );
+    bool SetDisabledBitmap( LPCWSTR name, bool file = false );
 
     /** Sets this button's bitmap when the mouse is not over it.
     @param bmp The bitmap which may be a larger skin bitmap or bitmap strip.  If
@@ -138,11 +138,11 @@ public:
 
     /** Sets the resource name of the mouse over sound.
     @param resource Resource name of the sound*/
-    static void SetMouseOverSound( const char * resource );
+    static void SetMouseOverSound( LPCWSTR resource );
 
     /** Sets the resource name of the click sound.
     @param resource Name of the sound resource */
-    static void SetClickSound( const char * resource );
+    static void SetClickSound( LPCWSTR resource );
 
     /** Sets the colour of the text shadow.
     @param crColor COLORREF structure of the text shadow. */
@@ -164,7 +164,7 @@ public:
 protected:
     CHoverButton( CHoverButton &dontCopy ){}    // Protected to prevent use
 
-    static bool AntiAliasedText( HDC hDC, const int& nXStart, const int& nYStart, const char * lpString );
+    static bool AntiAliasedText( HDC hDC, const int& nXStart, const int& nYStart, LPCWSTR lpString );
 
     void UpdateParent();
 

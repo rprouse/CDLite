@@ -49,7 +49,7 @@ BOOL CSkinDlg::OnInitDialog()
 {
     CDialog::OnInitDialog();
 
-    m_skinList.AddString( "Default" );
+    m_skinList.AddString( _T( "Default" ) );
 
     // TODO: Add extra initialization here
     CFileInfoArray fia;

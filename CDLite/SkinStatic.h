@@ -21,7 +21,7 @@ public:
 
     // Operations
 public:
-    void SetBmp( const char * skinname );
+    void SetBmp( LPCWSTR skinname );
 
     // Overrides
     // ClassWizard generated virtual function overrides

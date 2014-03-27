@@ -181,25 +181,25 @@ BOOL CHoverButton::OnEraseBkgnd( CDC* pDC )
     return 0;
 }
 
-bool CHoverButton::SetNormalBitmap( const char *name, bool file )
+bool CHoverButton::SetNormalBitmap( LPCWSTR name, bool file )
 {
     bmNormal.Load( name, file );
     return bmNormal;
 }
 
-bool CHoverButton::SetDepressedBitmap( const char *name, bool file )
+bool CHoverButton::SetDepressedBitmap( LPCWSTR name, bool file )
 {
     bmDepressed.Load( name, file );
     return bmDepressed;
 }
 
-bool CHoverButton::SetHoverBitmap( const char *name, bool file )
+bool CHoverButton::SetHoverBitmap( LPCWSTR name, bool file )
 {
     bmHover.Load( name, file );
     return bmHover;
 }
 
-bool CHoverButton::SetDisabledBitmap( const char *name, bool file )
+bool CHoverButton::SetDisabledBitmap( LPCWSTR name, bool file )
 {
     bmDisabled.Load( name, file );
     return bmDisabled;
@@ -279,12 +279,12 @@ void CHoverButton::SetFont( CFont *fn )
     font = fn;
 }
 
-void CHoverButton::SetClickSound( const char *resource )
+void CHoverButton::SetClickSound( LPCWSTR resource )
 {
     clickSound = resource;
 }
 
-void CHoverButton::SetMouseOverSound( const char *resource )
+void CHoverButton::SetMouseOverSound( LPCWSTR resource )
 {
     mouseOverSound = resource;
 }
@@ -319,7 +319,7 @@ void CHoverButton::SetTextShadowColor( COLORREF crColor )
     textShadowColour = crColor;
 }
 
-bool CHoverButton::AntiAliasedText( HDC hDC, const int& nXStart, const int& nYStart, const char * lpString )
+bool CHoverButton::AntiAliasedText( HDC hDC, const int& nXStart, const int& nYStart, LPCWSTR lpString )
 {
     MAT2 m2 = { { 0, 1 }, { 0, 0 }, { 0, 0 }, { 0, 1 } };
     GLYPHMETRICS gm;

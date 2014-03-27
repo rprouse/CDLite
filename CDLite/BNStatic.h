@@ -22,7 +22,7 @@ public:
 
     // Operations
 public:
-    void SetWindowText( LPCTSTR lpszString );
+    void SetWindowText( LPCWSTR lpszString );
     bool SetBmp( const CBmp & bmp );
 
     // Overrides

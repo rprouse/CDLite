@@ -33,7 +33,7 @@ public:
      * @param name the name of the file or resource
      * @param file true to load from a file, false to load from a resource
      **/
-    CBmp( const char * name, bool file = false );
+    CBmp( LPCWSTR name, bool file = false );
 
     /**
      * Construct from a bitmap handle
@@ -71,7 +71,7 @@ public:
      * @param file true to load from a file, false to load from a resource
      * @return the handle to the loaded bitmap, NULL on failure
      **/
-    HBITMAP Load( const char * name, bool file = false );
+    HBITMAP Load( LPCWSTR name, bool file = false );
 
     /**
      * Draws the bitmap to the screen

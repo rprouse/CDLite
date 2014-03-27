@@ -5,7 +5,7 @@
 CRegistry::CRegistry() : m_hkey( NULL ) { }
 
 
-CRegistry::CRegistry( HKEY rootkey, LPCTSTR keyname ) : m_hkey( NULL )
+CRegistry::CRegistry( HKEY rootkey, LPCWSTR keyname ) : m_hkey( NULL )
 {
     if ( !OpenKey( rootkey, keyname ) && !CreateKey( rootkey, keyname ) )
         throw std::runtime_error( "Could not open or create registry key" );
@@ -16,7 +16,7 @@ CRegistry::~CRegistry()
     CloseKey();
 }
 
-bool CRegistry::CreateKey( HKEY rootkey, LPCSTR keyname )
+bool CRegistry::CreateKey( HKEY rootkey, LPCWSTR keyname )
 {
     //make sure no other key is open
     CloseKey();
@@ -31,7 +31,7 @@ bool CRegistry::CreateKey( HKEY rootkey, LPCSTR keyname )
 }
 
 // Requires IE4 or later
-bool CRegistry::DeleteKey( HKEY rootkey, LPCSTR keyname )
+bool CRegistry::DeleteKey( HKEY rootkey, LPCWSTR keyname )
 {
     //make sure no other key is open
     CloseKey();
@@ -40,7 +40,7 @@ bool CRegistry::DeleteKey( HKEY rootkey, LPCSTR keyname )
     return ( SHDeleteKey( rootkey, keyname ) == ERROR_SUCCESS );
 }
 
-bool CRegistry::OpenKey( HKEY rootkey, LPCSTR keyname )
+bool CRegistry::OpenKey( HKEY rootkey, LPCWSTR keyname )
 {
     //make sure no other key is open
     CloseKey();
@@ -65,7 +65,7 @@ bool CRegistry::CloseKey()
     return true;
 }
 
-bool CRegistry::Exists( HKEY rootkey, LPCSTR keyname )
+bool CRegistry::Exists( HKEY rootkey, LPCWSTR keyname )
 {
     HKEY temp;
     bool b = ( RegOpenKey( rootkey, keyname, &temp ) == ERROR_SUCCESS ) ? true : false;
@@ -73,7 +73,7 @@ bool CRegistry::Exists( HKEY rootkey, LPCSTR keyname )
     return b;
 }
 
-bool CRegistry::Exists( LPCSTR keyname )
+bool CRegistry::Exists( LPCWSTR keyname )
 {
     // Check that we have a key open
     if ( !m_hkey )
@@ -85,32 +85,32 @@ bool CRegistry::Exists( LPCSTR keyname )
     return b;
 }
 
-bool CRegistry::SetValue( LPCSTR name, DWORD value )
+bool CRegistry::SetValue( LPCWSTR name, DWORD value )
 {
     return SetDWORD( name, value );
 }
 
-bool CRegistry::SetValue( LPCSTR name, DWORD64 value )
+bool CRegistry::SetValue( LPCWSTR name, DWORD64 value )
 {
     return SetDWORD64( name, value );
 }
 
-bool CRegistry::SetValue( LPCSTR name, LPSTR value )
+bool CRegistry::SetValue( LPCWSTR name, LPCWSTR value )
 {
     return SetString( name, value );
 }
 
-bool CRegistry::SetValue( LPCSTR name, int value )
+bool CRegistry::SetValue( LPCWSTR name, int value )
 {
     return SetDWORD( name, (DWORD)value );
 }
 
-bool CRegistry::SetValue( LPCSTR name, const CString &value )
+bool CRegistry::SetValue( LPCWSTR name, const CString &value )
 {
     return SetString( name, value );
 }
 
-bool CRegistry::GetValue( LPCSTR name, CString &value )
+bool CRegistry::GetValue( LPCWSTR name, CString &value )
 {
     DWORD type;
     DWORD size = 0;
@@ -133,7 +133,7 @@ bool CRegistry::GetValue( LPCSTR name, CString &value )
     return true;
 }
 
-bool CRegistry::GetValue( LPCSTR name, LPSTR string, int len )
+bool CRegistry::GetValue( LPCWSTR name, LPWSTR string, int len )
 {
     DWORD type;
     DWORD size = len;
@@ -143,86 +143,86 @@ bool CRegistry::GetValue( LPCSTR name, LPSTR string, int len )
     return( RegQueryValueEx( m_hkey, name, NULL, &type, (LPBYTE)string, &size ) == ERROR_SUCCESS );
 }
 
-bool CRegistry::GetValue( LPCSTR name, DWORD *dword, DWORD defVal )
+bool CRegistry::GetValue( LPCWSTR name, DWORD *dword, DWORD defVal )
 {
     DWORD type;
     DWORD size = sizeof( DWORD );
 
     //get the value
     *dword = defVal;
-    return( RegQueryValueEx( m_hkey, (char*)name, NULL, &type, (LPBYTE)dword, &size ) == ERROR_SUCCESS );
+    return( RegQueryValueEx( m_hkey, name, NULL, &type, (LPBYTE)dword, &size ) == ERROR_SUCCESS );
 }
 
-bool CRegistry::GetValue( LPCSTR name, DWORD64 *dword64, DWORD64 defVal )
+bool CRegistry::GetValue( LPCWSTR name, DWORD64 *dword64, DWORD64 defVal )
 {
     DWORD type;
     DWORD size = sizeof( DWORD64 );
 
     //get the value
     *dword64 = defVal;
-    return( RegQueryValueEx( m_hkey, (char*)name, NULL, &type, (LPBYTE)dword64, &size ) == ERROR_SUCCESS );
+    return( RegQueryValueEx( m_hkey, name, NULL, &type, (LPBYTE)dword64, &size ) == ERROR_SUCCESS );
 }
 
-bool CRegistry::GetValue( LPCSTR name, int *dword, int defVal )
+bool CRegistry::GetValue( LPCWSTR name, int *dword, int defVal )
 {
     return GetValue( name, (DWORD *)dword, defVal );
 }
 
-bool CRegistry::RemoveValue( LPCSTR name )
+bool CRegistry::RemoveValue( LPCWSTR name )
 {
     return( RegDeleteValue( m_hkey, name ) == ERROR_SUCCESS );
 }
 
-bool CRegistry::SetDWORD( LPCSTR name, DWORD value )
+bool CRegistry::SetDWORD( LPCWSTR name, DWORD value )
 {
     return( RegSetValueEx( m_hkey, name, 0, REG_DWORD, (LPBYTE)&value, sizeof( DWORD ) ) == ERROR_SUCCESS );
 }
 
-bool CRegistry::SetDWORD64( LPCSTR name, DWORD64 value )
+bool CRegistry::SetDWORD64( LPCWSTR name, DWORD64 value )
 {
     return( RegSetValueEx( m_hkey, name, 0, REG_BINARY, (LPBYTE)&value, sizeof( DWORD64 ) ) == ERROR_SUCCESS );
 }
 
-bool CRegistry::SetString( LPCSTR name, LPSTR value )
+bool CRegistry::SetString( LPCWSTR name, LPCWSTR value )
 {
     return( RegSetValueEx( m_hkey, name, 0, REG_SZ, (LPBYTE)value, lstrlen( value ) + 1 ) == ERROR_SUCCESS );
 }
 
-bool CRegistry::SetString( LPCSTR name, const CString & value )
+bool CRegistry::SetString( LPCWSTR name, const CString & value )
 {
-    return( RegSetValueEx( m_hkey, name, 0, REG_SZ, (LPBYTE)value.operator LPCTSTR(), value.GetLength() + 1 ) == ERROR_SUCCESS );
+    return( RegSetValueEx( m_hkey, name, 0, REG_SZ, (LPBYTE)value.operator LPCWSTR(), value.GetLength() + 1 ) == ERROR_SUCCESS );
 }
 
-bool CRegistry::SetBinary( LPCSTR name, BYTE * value, DWORD len )
+bool CRegistry::SetBinary( LPCWSTR name, BYTE * value, DWORD len )
 {
     return( RegSetValueEx( m_hkey, name, 0, REG_BINARY, value, len ) == ERROR_SUCCESS );
 }
 
-DWORD CRegistry::GetDWORD( LPCSTR name, DWORD defVal )
+DWORD CRegistry::GetDWORD( LPCWSTR name, DWORD defVal )
 {
     DWORD type;
     DWORD size = sizeof( DWORD64 );
 
     //get the value
     DWORD64 dword = defVal;
-    if ( ( RegQueryValueEx( m_hkey, (char*)name, NULL, &type, (LPBYTE)&dword, &size ) != ERROR_SUCCESS ) || ( type != REG_DWORD ) )
+    if ( ( RegQueryValueEx( m_hkey, name, NULL, &type, (LPBYTE)&dword, &size ) != ERROR_SUCCESS ) || ( type != REG_DWORD ) )
         return defVal;
     return dword;
 }
 
-DWORD64 CRegistry::GetDWORD64( LPCSTR name, DWORD64 defVal )
+DWORD64 CRegistry::GetDWORD64( LPCWSTR name, DWORD64 defVal )
 {
     DWORD type;
     DWORD size = sizeof( DWORD64 );
 
     //get the value
     DWORD64 dword64 = defVal;
-    if ( ( RegQueryValueEx( m_hkey, (char*)name, NULL, &type, (LPBYTE)&dword64, &size ) != ERROR_SUCCESS ) || ( type != REG_BINARY ) )
+    if ( ( RegQueryValueEx( m_hkey, name, NULL, &type, (LPBYTE)&dword64, &size ) != ERROR_SUCCESS ) || ( type != REG_BINARY ) )
         return defVal;
     return dword64;
 }
 
-DWORD CRegistry::GetString( LPCSTR name, LPSTR string, DWORD len )
+DWORD CRegistry::GetString( LPCWSTR name, LPWSTR string, DWORD len )
 {
     DWORD type;
     DWORD size = len;
@@ -235,7 +235,7 @@ DWORD CRegistry::GetString( LPCSTR name, LPSTR string, DWORD len )
     return size;
 }
 
-CString CRegistry::GetString( LPCSTR name )
+CString CRegistry::GetString( LPCWSTR name )
 {
     DWORD type;
     DWORD size = 0;
@@ -259,7 +259,7 @@ CString CRegistry::GetString( LPCSTR name )
     return temp;
 }
 
-DWORD CRegistry::GetBinary( LPCSTR name, BYTE * value, DWORD len )
+DWORD CRegistry::GetBinary( LPCWSTR name, BYTE * value, DWORD len )
 {
     DWORD type;
     DWORD size = len;

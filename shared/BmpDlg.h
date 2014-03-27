@@ -26,7 +26,7 @@ class CBmpDlg : public CDialog
 {
 public:
     CBmpDlg();
-    CBmpDlg( LPCTSTR lpszTemplateName, CWnd* pParentWnd = NULL );
+    CBmpDlg( LPCWSTR lpszTemplateName, CWnd* pParentWnd = NULL );
     CBmpDlg( UINT nIDTemplate, CWnd* pParentWnd = NULL );
     virtual ~CBmpDlg();
 
@@ -36,7 +36,7 @@ public:
      * @param file true to load from a file, false to load from a resource
      * @return true if successful
      **/
-    bool LoadBackground( LPCTSTR lpszName, bool bFromFile = false );
+    bool LoadBackground( LPCWSTR lpszName, bool bFromFile = false );
 
     /**
      * Sets the background to a CBmp object

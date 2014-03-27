@@ -35,7 +35,7 @@ HBRUSH CBmpNumberStatic::CtlColor( CDC* pDC, UINT nCtlColor )
     return (HBRUSH)GetStockObject( NULL_BRUSH );
 }
 
-void CBmpNumberStatic::SetWindowText( LPCTSTR lpszString )
+void CBmpNumberStatic::SetWindowText( LPCWSTR lpszString )
 {
     CStatic::SetWindowText( lpszString );
 

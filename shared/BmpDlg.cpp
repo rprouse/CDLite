@@ -24,7 +24,7 @@ END_MESSAGE_MAP()
 CBmpDlg::CBmpDlg() :
 CDialog(), m_bMoving( false ), hBackground() { }
 
-CBmpDlg::CBmpDlg( LPCTSTR lpszTemplateName, CWnd* pParentWnd ) :
+CBmpDlg::CBmpDlg( LPCWSTR lpszTemplateName, CWnd* pParentWnd ) :
 CDialog( lpszTemplateName, pParentWnd ), m_bMoving( false ), hBackground() { }
 
 CBmpDlg::CBmpDlg( UINT nIDTemplate, CWnd* pParentWnd ) :
@@ -34,7 +34,7 @@ CBmpDlg::~CBmpDlg()
 {
 }
 
-bool CBmpDlg::LoadBackground( LPCTSTR lpszName, bool bFromFile )
+bool CBmpDlg::LoadBackground( LPCWSTR lpszName, bool bFromFile )
 {
     hBackground.Load( lpszName, bFromFile );
     return hBackground;
@@ -84,7 +84,7 @@ void CBmpDlg::OnPaint()
     if ( hBackground )
     {
         BITMAP bmp;
-        GetObject( (HBITMAP)hBackground, sizeof( bmp ), (LPSTR)&bmp );
+        GetObject( (HBITMAP)hBackground, sizeof( bmp ), (LPVOID)&bmp );
 
         static bool sized = false;
         if ( !sized )

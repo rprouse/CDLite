@@ -51,7 +51,7 @@ int CSkinStatic::OnCreate( LPCREATESTRUCT lpCreateStruct )
     return 0;
 }
 
-void CSkinStatic::SetBmp( const char * skinname )
+void CSkinStatic::SetBmp( LPCWSTR skinname )
 {
     CString skin( "skins\\" );
     skin += skinname;
@@ -60,7 +60,7 @@ void CSkinStatic::SetBmp( const char * skinname )
     if ( !m_skin.Load( skin, true ) )
     {
         // Load default skin
-        m_skin.Load( "IDB_DEFAULT_SKIN", false );
+        m_skin.Load( _T( "IDB_DEFAULT_SKIN" ), false );
     }
     Invalidate( FALSE );
     UpdateWindow();

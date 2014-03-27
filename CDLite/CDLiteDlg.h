@@ -88,7 +88,7 @@ private:
     void PositionControls();
     void SwitchCDDrive( UINT drive );
 
-    static void AddMenu( CMenu * pMenu, UINT id, LPCTSTR text, BOOL checked );
+    static void AddMenu( CMenu * pMenu, UINT id, LPCWSTR text, BOOL checked );
 };
 
 //{{AFX_INSERT_LOCATION}}

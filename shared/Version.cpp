@@ -21,9 +21,9 @@ int CVersion::Convert( const CString& version )
     nMajor = nMinor = nIncrement = nBuild = 0;
 
     if ( version.Find( ',' ) != -1 )
-        ret = sscanf( version, "%hu,%hu,%hu,%hu", &nMajor, &nMinor, &nIncrement, &nBuild );
+        ret = swscanf( version, _T( "%hu,%hu,%hu,%hu" ), &nMajor, &nMinor, &nIncrement, &nBuild );
     else
-        ret = sscanf( version, "%hu.%hu.%hu.%hu", &nMajor, &nMinor, &nIncrement, &nBuild );
+        ret = swscanf( version, _T( "%hu.%hu.%hu.%hu" ), &nMajor, &nMinor, &nIncrement, &nBuild );
     return ret;
 }
 
@@ -35,14 +35,14 @@ CVersion::operator CString() const
 CString CVersion::StringValue() const
 {
     CString ret;
-    ret.Format( "%hu.%hu.%hu", nMajor, nMinor, nIncrement );
+    ret.Format( _T( "%hu.%hu.%hu" ), nMajor, nMinor, nIncrement );
     return ret;
 }
 
 CString CVersion::ShortStringValue() const
 {
     CString ret;
-    ret.Format( "%hu.%hu", nMajor, nMinor );
+    ret.Format( _T( "%hu.%hu" ), nMajor, nMinor );
     return ret;
 }
 

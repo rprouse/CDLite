@@ -98,12 +98,12 @@ BOOL CCDLiteDlg::OnInitDialog()
     if ( pSysMenu != NULL )
     {
         pSysMenu->AppendMenu( MF_SEPARATOR );
-        pSysMenu->AppendMenu( MF_STRING, IDM_PREV, "Pre&vious" );
-        pSysMenu->AppendMenu( MF_STRING, IDM_PLAY, "&Play" );
-        pSysMenu->AppendMenu( MF_STRING, IDM_PAUSE, "Pa&use" );
-        pSysMenu->AppendMenu( MF_STRING, IDM_STOP, "&Stop" );
-        pSysMenu->AppendMenu( MF_STRING, IDM_NEXT, "&Next" );
-        pSysMenu->AppendMenu( MF_STRING, IDM_EJECT, "&Eject" );
+        pSysMenu->AppendMenu( MF_STRING, IDM_PREV, _T( "Pre&vious" ) );
+        pSysMenu->AppendMenu( MF_STRING, IDM_PLAY, _T( "&Play" ) );
+        pSysMenu->AppendMenu( MF_STRING, IDM_PAUSE, _T( "Pa&use" ) );
+        pSysMenu->AppendMenu( MF_STRING, IDM_STOP, _T( "&Stop" ) );
+        pSysMenu->AppendMenu( MF_STRING, IDM_NEXT, _T( "&Next" ) );
+        pSysMenu->AppendMenu( MF_STRING, IDM_EJECT, _T( "&Eject" ) );
         CString strAboutMenu;
         strAboutMenu.LoadString( IDS_ABOUTBOX );
         if ( !strAboutMenu.IsEmpty() )
@@ -117,7 +117,7 @@ BOOL CCDLiteDlg::OnInitDialog()
     //  when the application's main window is not a dialog
     SetIcon( m_hIcon, TRUE );        // Set big icon
     SetIcon( m_hIcon, FALSE );        // Set small icon
-    SetWindowText( "CDLite" );
+    SetWindowText( _T( "CDLite" ) );
 
     LoadRegistry();
     PositionControls();
@@ -284,7 +284,7 @@ void CCDLiteDlg::OnSystem()
 
     CMenu cdMenu;
     VERIFY( cdMenu.CreatePopupMenu() );
-    VERIFY( pPopup->InsertMenu( 5, MF_POPUP | MF_BYPOSITION, (UINT)cdMenu.m_hMenu, "CD Drives" ) );
+    VERIFY( pPopup->InsertMenu( 5, MF_POPUP | MF_BYPOSITION, (UINT)cdMenu.m_hMenu, _T( "CD Drives" ) ) );
 
     CString drives( m_cd.GetDrives() );
 
@@ -292,19 +292,19 @@ void CCDLiteDlg::OnSystem()
     for ( UINT i = 0; i < m_cd.GetNumDrives() && i < 4; ++i )
     {
         CString menuText;
-        menuText.Format( "&%c Drive", drives.GetAt( i ) );
+        menuText.Format( _T( "&%c Drive" ), drives.GetAt( i ) );
 
         AddMenu( &cdMenu, IDM_CD1 + i, menuText, ( m_cd.GetDriveID() == i ) );
     }
 
-    AddMenu( pPopup, IDM_STOP_ON_CLOSE, "S&top Playback On Close", m_stopOnClose );
+    AddMenu( pPopup, IDM_STOP_ON_CLOSE, _T( "S&top Playback On Close" ), m_stopOnClose );
 
     CRect rect;
     GetWindowRect( &rect );
     pPopup->TrackPopupMenu( TPM_LEFTALIGN, rect.left, rect.bottom, this );
 }
 
-void CCDLiteDlg::AddMenu( CMenu * pMenu, UINT id, LPCTSTR text, BOOL checked )
+void CCDLiteDlg::AddMenu( CMenu * pMenu, UINT id, LPCWSTR text, BOOL checked )
 {
     UINT flags = MF_STRING | MF_ENABLED;
     if ( checked )
@@ -339,7 +339,7 @@ bool CCDLiteDlg::LoadSkin( CString skin )
     if ( !m_skin.Load( skin, true ) )
     {
         // Load default skin
-        m_skin.Load( "IDB_DEFAULT_SKIN", false );
+        m_skin.Load( _T( "IDB_DEFAULT_SKIN" ), false );
     }
     SetBackground( m_skin, 0, 0, 186, 12 );
     m_track.SetBmp( m_skin );
@@ -365,9 +365,9 @@ void CCDLiteDlg::UpdateInfo()
 {
     CString buff;
     DWORD dwTMSF = m_cd.GetPosition();
-    buff.Format( "%.2d", MCI_TMSF_TRACK( dwTMSF ) );
+    buff.Format( _T( "%.2d" ), MCI_TMSF_TRACK( dwTMSF ) );
     m_track.SetWindowText( buff );
-    buff.Format( " %.2d:%.2d", MCI_TMSF_MINUTE( dwTMSF ), MCI_TMSF_SECOND( dwTMSF ) );
+    buff.Format( _T( " %.2d:%.2d" ), MCI_TMSF_MINUTE( dwTMSF ), MCI_TMSF_SECOND( dwTMSF ) );
     m_time.SetWindowText( buff );
 }
 
@@ -393,38 +393,38 @@ void CCDLiteDlg::OnDestroy()
 
 void CCDLiteDlg::LoadRegistry()
 {
-    CRegistry reg( HKEY_CURRENT_USER, "Software\\Alteridem\\CDLite" );
-    if ( !reg.GetValue( "Skin", m_skinName ) )
-        m_skinName = "Default";
+    CRegistry reg( HKEY_CURRENT_USER, _T( "Software\\Alteridem\\CDLite" ) );
+    if ( !reg.GetValue( _T( "Skin" ), m_skinName ) )
+        m_skinName = _T( "Default" );
 
-    int x, y;
-    if ( reg.GetValue( "XPos", &x ) && reg.GetValue( "YPos", &y ) )
-    {
-        SetWindowPos( &wndTopMost, x, y, 0, 0, SWP_NOSIZE );
-        //EnsureOnScreen();
-    }
-    else
-    {
-        SetWindowPos( &wndTopMost, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE );
-    }
+    //int x, y;
+    //if ( reg.GetValue( _T( "XPos" ), &x ) && reg.GetValue( _T( "YPos" ), &y ) )
+    //{
+    //    SetWindowPos( &wndTopMost, x, y, 0, 0, SWP_NOSIZE );
+    //    //EnsureOnScreen();
+    //}
+    //else
+    //{
+    //    SetWindowPos( &wndTopMost, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE );
+    //}
 
     // Which CD Drive are we using?
-    SwitchCDDrive( reg.GetDWORD( "Drive" ) );
+    SwitchCDDrive( reg.GetDWORD( _T( "Drive" ) ) );
 
-    m_stopOnClose = (BOOL)reg.GetDWORD( "Stop" );
+    m_stopOnClose = (BOOL)reg.GetDWORD( _T( "Stop" ) );
 }
 
 void CCDLiteDlg::SaveRegistry()
 {
-    CRegistry reg( HKEY_CURRENT_USER, "Software\\Alteridem\\CDLite" );
-    reg.SetValue( "Skin", m_skinName );
+    CRegistry reg( HKEY_CURRENT_USER, _T( "Software\\Alteridem\\CDLite" ) );
+    reg.SetValue( _T( "Skin" ), m_skinName );
 
-    CRect rect;
-    GetWindowRect( &rect );
-    reg.SetValue( "XPos", (int)rect.left );
-    reg.SetValue( "YPos", (int)rect.top );
-    reg.SetDWORD( "Drive", m_cd.GetDriveID() );
-    reg.SetDWORD( "Stop", (DWORD)m_stopOnClose );
+    //CRect rect;
+    //GetWindowRect( &rect );
+    //reg.SetValue( _T( "XPos" ), (int)rect.left );
+    //reg.SetValue( _T( "YPos" ), (int)rect.top );
+    reg.SetDWORD( _T( "Drive" ), m_cd.GetDriveID() );
+    reg.SetDWORD( _T( "Stop" ), (DWORD)m_stopOnClose );
 }
 
 void CCDLiteDlg::OnLButtonUp( UINT nFlags, CPoint point )
